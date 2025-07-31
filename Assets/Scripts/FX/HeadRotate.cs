@@ -30,24 +30,24 @@ public class HeadRotate : MonoBehaviour
 
     public void UpdateHead(Vector2 dir)
     {
-        if (dir.x < -0.1f)
+        if (dir.x < -0.4f)
         {
             spriteRenderer.sprite = leftHead;
             spriteRenderer.flipX = leftFlip;
         }
-        else if (dir.x > 0.1f)
+        else if (dir.x > 0.4f)
         {
             spriteRenderer.sprite = rightHead;
             spriteRenderer.flipX = rightFlip;
         }
         else
         {
-            if (dir.y < -0.2f)
+            if (dir.y < -0.5f)
             {
                 spriteRenderer.sprite = downHead;
                 spriteRenderer.flipX = false;
             }
-            else if (dir.y > 0.2f)
+            else if (dir.y > 0.5f)
             {
                 spriteRenderer.sprite = upHead;
                 spriteRenderer.flipX = false;

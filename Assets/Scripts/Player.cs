@@ -12,9 +12,12 @@ public class Player : Character
     UC.InputControl moveControl;
     [SerializeField]
     float           rotateOnWalk = 0.0f;
+    [SerializeField]
+    Hypertag        cameraTag;
 
     Vector2         inputVector;
     Vector2         currentVelocity = Vector2.zero;
+    Camera          mainCamera;
 
     protected override void Start()
     {
@@ -23,12 +26,19 @@ public class Player : Character
         rb.linearDamping = characterType.dragCoeff;
 
         moveControl.playerInput = playerInput;
+
+        mainCamera = HypertaggedObject.GetFirstOrDefault<Camera>(cameraTag);
     }
 
 
     private void Update()
     {
         inputVector = moveControl.GetAxis2().normalized;
+
+        // Point to mouse
+        Vector3 position = mainCamera.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 mouseDir= (position.xy() - transform.position.xy()).normalized;
+        headSpriteRenderer.UpdateHead(mouseDir);
     }
 
     void FixedUpdate()

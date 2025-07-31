@@ -18,9 +18,9 @@ public class Character : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
 
         bodySpriteRenderer.sprite = characterType.bodySprite;
-        headSpriteRenderer.SetHeads(characterType.headSprite,
-                            characterType.headSprite, false,
-                            characterType.headSprite, false,
-                            characterType.headSprite);
+        headSpriteRenderer.SetHeads(characterType.headSpriteDown,
+                            characterType.headSpriteRight, false,
+                            (characterType.headSpriteLeft != null) ? (characterType.headSpriteLeft) : (characterType.headSpriteRight), (characterType.headSpriteLeft == null),
+                            characterType.headSpriteUp);
     }
 }

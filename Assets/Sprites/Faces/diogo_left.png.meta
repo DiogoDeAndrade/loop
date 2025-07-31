@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 5ccd011b1a9d98f47853a36eb634fd08
+guid: 4ce98b8afe2246d4cac95a69834550bb
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6540597721561195027
-    second: diogo_0
+      213: -7923475978688335054
+    second: diogo_left_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -49,8 +49,8 @@ TextureImporter:
   spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 7
-  spritePivot: {x: 0.5, y: 0.5}
+  alignment: 9
+  spritePivot: {x: 0.65960556, y: 0}
   spritePixelsToUnits: 4
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
@@ -113,23 +113,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: diogo_0
+      name: diogo_left_0
       rect:
         serializedVersion: 2
-        x: 11
-        y: 6
-        width: 44
-        height: 74
+        x: 0
+        y: 0
+        width: 23
+        height: 28
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 312626469fed4ca50800000000000000
-      internalID: 6540597721561195027
+      spriteID: 233f0f7e3982a0290800000000000000
+      internalID: -7923475978688335054
       vertices: []
       indices: 
       edges: []
@@ -139,7 +139,7 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 0
+    internalID: 1537655665
     vertices: []
     indices: 
     edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      diogo_0: 6540597721561195027
+      diogo_left_0: -7923475978688335054
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

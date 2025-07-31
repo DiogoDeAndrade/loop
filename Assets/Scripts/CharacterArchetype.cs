@@ -4,8 +4,11 @@ using NaughtyAttributes;
 [CreateAssetMenu(fileName = "CharacterArchetype", menuName = "Loop/Character Archetype")]
 public class CharacterArchetype : ScriptableObject
 {
-    public Sprite   headSprite;
     public Sprite   bodySprite;
+    public Sprite   headSpriteUp;
+    public Sprite   headSpriteDown;
+    public Sprite   headSpriteLeft;
+    public Sprite   headSpriteRight;
     public float    maxSpeed = 200.0f;
     [HorizontalLine(color: EColor.Red)]
     public bool     isPlayer = false;
