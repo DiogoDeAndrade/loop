@@ -10,10 +10,6 @@ public class Player : Character
     PlayerInput     playerInput;
     [SerializeField, InputPlayer(nameof(playerInput))] 
     UC.InputControl moveControl;
-    [SerializeField] 
-    float           acceleration = 200.0f;
-    [SerializeField] 
-    float           dragCoeff = 5.0f;
 
     Vector2         inputVector;
     Vector2         currentVelocity = Vector2.zero;
@@ -22,7 +18,7 @@ public class Player : Character
     {
         base.Start();
 
-        rb.linearDamping = dragCoeff;
+        rb.linearDamping = characterType.dragCoeff;
 
         moveControl.playerInput = playerInput;
     }
@@ -44,11 +40,11 @@ public class Player : Character
 
         currentVelocity = rb.linearVelocity;
 
-        currentVelocity += acceleration * inputVector * Time.fixedDeltaTime;
+        currentVelocity += characterType.acceleration * inputVector * Time.fixedDeltaTime;
         
         float currentSpeed = currentVelocity.magnitude;
-        if (currentSpeed > maxSpeed)
-            currentVelocity = currentVelocity.normalized * maxSpeed;
+        if (currentSpeed > characterType.maxSpeed)
+            currentVelocity = currentVelocity.normalized * characterType.maxSpeed;
 
         rb.linearVelocity = currentVelocity;
     }
