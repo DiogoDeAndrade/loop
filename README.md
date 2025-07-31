@@ -53,6 +53,7 @@ This is some preliminary ideas to get started:
 ## Art
 
 - Font "Alagard" by [Hewett Tsoi]
+- Palette "Retrocal" by [Polyphrog](https://lospec.com/poly-phrog)
 - 1-Bit Pack by [KenneyNL], licensed under [CC0]
 - Everything else done by [Diogo de Andrade], licensed through the [CC0] license.
 
