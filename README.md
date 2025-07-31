@@ -52,9 +52,13 @@ This is some preliminary ideas to get started:
 
 ## Tasks
 
-* Bounce animation
-  * Angular bounce
-* Head rotation
+* Gun ability
+  * Target mouse
+  * Shoot
+* Knife ability
+  * Target mouse
+  * Fire
+
 
 ## Art
 
