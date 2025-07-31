@@ -10,6 +10,8 @@ public class Player : Character
     PlayerInput     playerInput;
     [SerializeField, InputPlayer(nameof(playerInput))] 
     UC.InputControl moveControl;
+    [SerializeField]
+    float           rotateOnWalk = 0.0f;
 
     Vector2         inputVector;
     Vector2         currentVelocity = Vector2.zero;
@@ -47,5 +49,17 @@ public class Player : Character
             currentVelocity = currentVelocity.normalized * characterType.maxSpeed;
 
         rb.linearVelocity = currentVelocity;
+
+        if (rotateOnWalk > 0.0f)
+        {
+            if (Mathf.Abs(inputVector.x) > 0.1f)
+            {
+                bodySpriteRenderer.transform.localEulerAngles = new Vector3(0.0f, 0.0f, -rotateOnWalk * inputVector.x);
+            }
+            else
+            {
+                bodySpriteRenderer.transform.localEulerAngles = Vector3.zero;
+            }
+        }
     }
 }
