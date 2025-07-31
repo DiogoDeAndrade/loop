@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15d66ca22113e7248b43bbb173d525e7, type: 3}
+  m_Name: ItemBullet9mm
+  m_EditorClassIdentifier: 
+  parentItems: []
+  displayName: 9mm Bullet
+  displaySpriteColor: {r: 1, g: 1, b: 1, a: 1}
+  displaySprite: {fileID: -4983165049299271294, guid: ff4910ebe4f95ef498a87c989779fd7d, type: 3}
+  displayTextColor: {r: 1, g: 1, b: 1, a: 1}
+  scenePrefab: {fileID: 0}
+  isStackable: 1
+  maxStack: 0
