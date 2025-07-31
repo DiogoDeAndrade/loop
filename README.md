@@ -39,16 +39,22 @@ This is some preliminary ideas to get started:
 ## Abilities
 
 * Theoretically this can be used by player and enemies
-  * Swipe with weapon (melee attack) - don't forget telegraph
-    * W/ Charge Attack
-  * Block/Parry - just difference in timmings
-  * Dodge
-  * Fire projectiles (i.e. fireball, acidbolt, etc)
-  * AOE projectiles (i.e. rain of meteors) - don't forget telegraph
-  * Channeled projectiles (i.e. magic beam)
-  * Channeled spells (i.e. heal) - can be thought as a charged attack
-  * Temporary invulnerability
-  * Rush charge - don't forget telegraph 
+* Swipe with weapon (melee attack) - don't forget telegraph
+  * W/ Charge Attack
+* Block/Parry - just difference in timmings
+* Dodge
+* Fire projectiles (i.e. fireball, acidbolt, etc)
+* AOE projectiles (i.e. rain of meteors) - don't forget telegraph
+* Channeled projectiles (i.e. magic beam)
+* Channeled spells (i.e. heal) - can be thought as a charged attack
+* Temporary invulnerability
+* Rush charge - don't forget telegraph 
+
+## Tasks
+
+* Bounce animation
+  * Angular bounce
+* Head rotation
 
 ## Art
 
