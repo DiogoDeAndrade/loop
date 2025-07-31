@@ -10,14 +10,17 @@ public class Player : Character
     PlayerInput     playerInput;
     [SerializeField, InputPlayer(nameof(playerInput))] 
     UC.InputControl moveControl;
+    [SerializeField, InputPlayer(nameof(playerInput)), InputButton]
+    UC.InputControl inventoryControl;
     [SerializeField]
     float           rotateOnWalk = 0.0f;
     [SerializeField]
     Hypertag        cameraTag;
 
-    Vector2         inputVector;
-    Vector2         currentVelocity = Vector2.zero;
-    Camera          mainCamera;
+    Vector2             inputVector;
+    Vector2             currentVelocity = Vector2.zero;
+    Camera              mainCamera;
+    InventoryDisplay    inventoryDisplay;
 
     protected override void Start()
     {
@@ -26,8 +29,14 @@ public class Player : Character
         rb.linearDamping = characterType.dragCoeff;
 
         moveControl.playerInput = playerInput;
+        inventoryControl.playerInput = playerInput;
 
         mainCamera = HypertaggedObject.GetFirstOrDefault<Camera>(cameraTag);
+
+        // Setup UI
+        var inventory = GetComponent<Inventory>();
+        inventoryDisplay = FindAnyObjectByType<InventoryDisplay>();
+        inventoryDisplay?.SetInventory(inventory);
     }
 
 
@@ -39,6 +48,12 @@ public class Player : Character
         Vector3 position = mainCamera.ScreenToWorldPoint(Input.mousePosition);
         Vector2 mouseDir= (position.xy() - transform.position.xy()).normalized;
         headSpriteRenderer.UpdateHead(mouseDir);
+
+        // Inventory
+        if (inventoryControl.IsDown())
+        {
+            inventoryDisplay?.Toggle();
+        }
     }
 
     void FixedUpdate()
