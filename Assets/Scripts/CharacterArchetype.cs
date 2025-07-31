@@ -1,5 +1,6 @@
 using UnityEngine;
 using NaughtyAttributes;
+using UC;
 
 [CreateAssetMenu(fileName = "CharacterArchetype", menuName = "Loop/Character Archetype")]
 public class CharacterArchetype : ScriptableObject
@@ -16,4 +17,6 @@ public class CharacterArchetype : ScriptableObject
     public float    acceleration = 400.0f;
     [ShowIf(nameof(isPlayer))]
     public float    dragCoeff = 200.0f;
+    [ShowIf(nameof(isPlayer))]
+    public Inventory.Items[]    initialItems;
 }

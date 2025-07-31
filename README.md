@@ -52,17 +52,17 @@ This is some preliminary ideas to get started:
 
 ## Tasks
 
-* Pickup items
-* Display inventory
-* Gun ability
-  * Shoot
 * Knife ability
   * Attack
 * Add basic enemy
+  * Take damage
   * Get killed
   * Attack player
   * Pathfinding (this is the hard one)
   * Apply debuffs
+* Block/Parry
+* Dodge
+* Charge attack
 
 
 ## Art

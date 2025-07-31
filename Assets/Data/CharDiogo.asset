@@ -21,3 +21,6 @@ MonoBehaviour:
   isPlayer: 1
   acceleration: 500
   dragCoeff: 5
+  initialItems:
+  - item: {fileID: 11400000, guid: b1b1891c310b52b42bab39fbb1ae442b, type: 2}
+    count: 6

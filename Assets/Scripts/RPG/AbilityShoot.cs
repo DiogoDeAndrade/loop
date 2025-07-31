@@ -1,24 +1,29 @@
-using NaughtyAttributes;
 using System.Collections.Generic;
-using UC;
 using UnityEngine;
 
-public class AbilityShoot : MonoBehaviour
+public class AbilityShoot : Ability
 {
+    [System.Serializable]
     private struct ProjectileShot
     {
         public Transform    position;
         public Projectile   projectile;
     }
 
-    [SerializeField] 
-    private Item   ammoItem;
-    [SerializeField, ShowIf(nameof(hasAmmo))] 
-    private int    itemPerShot = 0;
     [SerializeField]
     private List<ProjectileShot>    projectiles;
 
-    bool hasAmmo => ammoItem != null;
 
-    
+    public override void Trigger(float chargeDuration)
+    {
+        if (projectiles != null)
+        {
+            foreach (var p in projectiles)
+            {
+                Instantiate(p.projectile, p.position.position, p.position.rotation);
+            }
+        }
+
+        base.Trigger(chargeDuration);
+    }
 }
