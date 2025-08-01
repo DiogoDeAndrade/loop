@@ -36,7 +36,7 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - SpecialTemporaryGround
   m_SortingLayers:
   - name: Ground
     uniqueID: 2183759337

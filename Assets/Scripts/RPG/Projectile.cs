@@ -59,21 +59,26 @@ public class Projectile : MonoBehaviour
                 var damageHit = Physics2D.CircleCast(prevPos, radius, dir, dist, damageLayers);
                 if (damageHit.collider != null)
                 {
+                    float damage = _damage;
+                    DamageModifier modifier = damageHit.collider.GetComponent<DamageModifier>();
+                    if (modifier != null) damage = modifier.ModifyDamage(damage, this);
+
                     // Check if hit character, and if factions are different
-                    Character character = damageHit.collider.GetComponent<Character>();
+                    Character character = null;
+                    character = damageHit.collider.GetComponent<Character>();
+                    if (character == null) character = damageHit.collider.GetComponentInParent<Character>();
                     if (character != null)
                     {
                         if (!faction.IsHostile(character.faction)) return;
                     }
-                    var resourceHandler = damageHit.collider.FindResourceHandler(damageResource);
+                    var resourceHandler = (character) ? (character.FindResourceHandler(damageResource)) : (damageHit.collider.FindResourceHandler(damageResource));
                     if (resourceHandler)
                     {
-                        float damage = _damage;
                         if (character)
                         {
-                            damage = _owner.ModifyDamage(_damage, character);
-                        }
-                        resourceHandler.Change(ResourceHandler.ChangeType.Burst, -_damage, damageHit.point, -dir, _owner.gameObject);
+                            damage = _owner.ModifyDamage(damage, character);
+                        }   
+                        resourceHandler.Change(ResourceHandler.ChangeType.Burst, -damage, damageHit.point, -dir, _owner.gameObject);
                     }
                     
                     DestroyProjectile(damageHit.point, damageHit.normal);

@@ -7061,11 +7061,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6749205070720875387, guid: 4ba9cc54dd16a0f47a2269460a1202b6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -119.5
+      value: -97.8
       objectReference: {fileID: 0}
     - target: {fileID: 6749205070720875387, guid: 4ba9cc54dd16a0f47a2269460a1202b6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 41.1
+      value: 14.4
       objectReference: {fileID: 0}
     - target: {fileID: 6749205070720875387, guid: 4ba9cc54dd16a0f47a2269460a1202b6, type: 3}
       propertyPath: m_LocalPosition.z
@@ -7102,6 +7102,10 @@ PrefabInstance:
     - target: {fileID: 8247151410043207219, guid: 4ba9cc54dd16a0f47a2269460a1202b6, type: 3}
       propertyPath: m_Name
       value: Roswellian
+      objectReference: {fileID: 0}
+    - target: {fileID: 8247151410043207219, guid: 4ba9cc54dd16a0f47a2269460a1202b6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

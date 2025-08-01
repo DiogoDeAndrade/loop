@@ -9,12 +9,16 @@ public class Character : MonoBehaviour
     [SerializeField, Expandable]
     protected CharacterArchetype characterType;
     [SerializeField]
-    protected SpriteRenderer    bodySpriteRenderer;
-    [SerializeField]
-    protected HeadRotate        headSpriteRenderer;
-    [SerializeField]
     protected ResourceHandler   health;
     [HorizontalLine(color: EColor.Green)]
+    [SerializeField]
+    protected SpriteRenderer    bodySpriteRenderer;
+    [SerializeField]
+    protected HeadController        headSpriteRenderer;
+    [SerializeField]
+    protected SpriteRenderer    shadowRenderer;
+    [SerializeField]
+    protected ParticleSystem    deathPS;
     [SerializeField]
     protected Color             combatTextColorError = Color.red;
 
@@ -61,7 +65,21 @@ public class Character : MonoBehaviour
 
     private void OnDeath(GameObject changeSource)
     {
-        throw new NotImplementedException();
+        var colliders = GetComponents<Collider2D>();
+        foreach (var collider in colliders) collider.enabled = false;
+        rb.simulated = false;
+        if (bodySpriteRenderer) bodySpriteRenderer.FadeTo(shadowRenderer.color.ChangeAlpha(0.0f), 0.2f);
+        if (shadowRenderer) shadowRenderer.FadeTo(shadowRenderer.color.ChangeAlpha(0.0f), 0.2f);
+        if (headSpriteRenderer)
+        {
+            Vector3 dir = transform.position - changeSource.transform.position;
+            dir.y = Mathf.Abs(dir.y);
+            dir.z = 0.0f;
+            dir.Normalize();
+            headSpriteRenderer.PopOff(dir);
+        }
+
+        deathPS.Play();
     }
 
     private void OnDamage(ResourceHandler.ChangeType changeType, float deltaValue, Vector3 changeSrcPosition, Vector3 changeSrcDirection, GameObject changeSource)
