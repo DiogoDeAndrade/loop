@@ -20,7 +20,9 @@ public class AbilityShoot : Ability
         {
             foreach (var p in projectiles)
             {
-                Instantiate(p.projectile, p.position.position, p.position.rotation);
+                var projectile = Instantiate(p.projectile, p.position.position, p.position.rotation);
+                projectile.faction = character.faction;
+                projectile.owner = character;
             }
         }
 

@@ -11,6 +11,8 @@ public class RotateTowards : MonoBehaviour
     private TargetType type;
     [SerializeField, ShowIf(nameof(isTargetMouse))]
     Hypertag cameraTag;
+    [SerializeField, ShowIf(nameof(isTargetObject))]
+    Hypertag objectTag;
     [SerializeField]
     private float maxRotationSpeed = 90.0f;
     [SerializeField]
@@ -19,6 +21,7 @@ public class RotateTowards : MonoBehaviour
     Camera          mainCamera;
 
     bool isTargetMouse => type == TargetType.Mouse;
+    bool isTargetObject => type == TargetType.Object;
 
     void Start()
     {
@@ -36,7 +39,12 @@ public class RotateTowards : MonoBehaviour
         }
         else
         {
-            throw new NotImplementedException();
+            var targetObject = HypertaggedObject.GetFirstOrDefault<Transform>(objectTag);
+            if (targetObject != null)
+            {
+                // Check radius and LOS (?)
+                RotateTo(targetObject.position);
+            }
         }
     }
 

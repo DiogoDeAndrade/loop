@@ -5,6 +5,7 @@ using UC;
 [CreateAssetMenu(fileName = "CharacterArchetype", menuName = "Loop/Character Archetype")]
 public class CharacterArchetype : ScriptableObject
 {
+    public Faction  faction;
     public Sprite   bodySprite;
     public Sprite   headSpriteUp;
     public Sprite   headSpriteDown;

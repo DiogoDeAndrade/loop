@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6081a4fa756628446b5943720aa24e7a, type: 3}
   m_Name: CharDiogo
   m_EditorClassIdentifier: 
+  faction: {fileID: 11400000, guid: 0d85b45f015780c46b5099e18239d997, type: 2}
   bodySprite: {fileID: 21300000, guid: c80eec93cf4da0f4dbbd6d2ea8c5dcb7, type: 3}
   headSpriteUp: {fileID: 21300000, guid: caa82720bae979c4ebedca6034057205, type: 3}
   headSpriteDown: {fileID: 21300000, guid: 9d61c81214102a0439f6493c4836d12f, type: 3}

@@ -52,17 +52,19 @@ This is some preliminary ideas to get started:
 
 ## Tasks
 
-* Knife ability
-  * Attack
 * Add basic enemy
   * Take damage
   * Get killed
   * Attack player
   * Pathfinding (this is the hard one)
   * Apply debuffs
+* Knife ability
+  * Attack
 * Block/Parry
 * Dodge
 * Charge attack
+* Skill tree
+* Inventory tooltips
 
 
 ## Art
@@ -71,6 +73,8 @@ This is some preliminary ideas to get started:
 - Palette "Retrocal" by [Polyphrog](https://lospec.com/poly-phrog)
 - 1-Bit Pack by [KenneyNL], licensed under [CC0]
 - Sci-Fi UI Pack by [KenneyNL], licensed under [CC0]
+- Photos for photobashing from [Pexels](https://www.pexels.com/), free to use.
+- Heart icons created by [Kiranshastry - Flaticon](https://www.flaticon.com/free-icons/heart), free for use with attribution.
 - Everything else done by [Diogo de Andrade], licensed through the [CC0] license.
 
 ## Sound

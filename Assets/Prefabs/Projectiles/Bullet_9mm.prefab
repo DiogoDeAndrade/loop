@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2232035892295383405}
   - component: {fileID: 5829384818654185474}
   - component: {fileID: 527674318993212768}
+  - component: {fileID: 1871165074827744296}
   m_Layer: 0
   m_Name: Bullet_9mm
   m_TagString: Untagged
@@ -161,10 +162,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d237960bfaeb05469f56a3b2ad74a6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _faction: {fileID: 0}
   speed: 500
   maxDuration: 5
   radius: 1
+  _damage: 20
   obstacleLayers:
     serializedVersion: 2
     m_Bits: 128
+  damageLayers:
+    serializedVersion: 2
+    m_Bits: 256
+  damageResource: {fileID: 11400000, guid: 5983936904776bc449a3f57e724914ba, type: 2}
   destroyEffect: {fileID: 3517109550744753798, guid: 41a721f26ec19b840b91814a4dce1730, type: 3}
+--- !u!114 &1871165074827744296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8077994650845605917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b474e55949756149be150801ad0289c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offsetZ: 0.002

@@ -18,9 +18,6 @@ public class Player : Character
     float           rotateOnWalk = 0.0f;
     [SerializeField]
     Hypertag        cameraTag;
-    [HorizontalLine(color: EColor.Green)]
-    [SerializeField]
-    Color           combatTextColorError = Color.red;
 
     Vector2             inputVector;
     Vector2             currentVelocity = Vector2.zero;
