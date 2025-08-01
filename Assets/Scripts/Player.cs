@@ -24,13 +24,6 @@ public class Player : Character
     Camera              mainCamera;
     InventoryDisplay    inventoryDisplay;
 
-    class AbilityElem
-    {
-        public float     abilityTriggerStartTime;
-        public Ability   ability;
-    }
-    AbilityElem[]       abilities;
-
     protected override void Start()
     {
         base.Start();
@@ -56,19 +49,16 @@ public class Player : Character
         inventoryDisplay = FindAnyObjectByType<InventoryDisplay>();
         inventoryDisplay?.SetInventory(inventory);
 
-        abilities = new AbilityElem[abilityControl.Length];
-        for (int i = 0; i < abilities.Length; i++)
+        for (int i = 0; i < abilityControl.Length; i++)
         {
             abilityControl[i].playerInput = playerInput;
-            abilities[i] = new AbilityElem();
-            abilities[i].abilityTriggerStartTime = float.MaxValue;
-            abilities[i].ability = GetAbilityByIndex(i);
         }
     }
 
-
     private void Update()
     {
+        if (!isAlive) return;
+
         inputVector = moveControl.GetAxis2().normalized;
 
         // Point to mouse
@@ -81,11 +71,11 @@ public class Player : Character
         }
 
         // Trigger abilities
-        for (int i = 0; i < abilities.Length; i++)
+        for (int i = 0; i < abilities.Count; i++)
         {
             var ability = abilities[i].ability;
             if (ability == null) continue;
-            if (!ability.CanTrigger())
+            if (!ability.CanTrigger(position))
             {
                 // Inform of lack of ammo
                 if (!ability.HasAmmo())
@@ -135,6 +125,8 @@ public class Player : Character
 
     void FixedUpdate()
     {
+        if (!isAlive) return;
+
         MoveCharacter();
     }
 
@@ -163,16 +155,5 @@ public class Player : Character
                 bodySpriteRenderer.transform.localEulerAngles = Vector3.zero;
             }
         }
-    }
-
-    Ability GetAbilityByIndex(int index)
-    {
-        var abilities = GetComponentsInChildren<Ability>();
-        foreach (var a in abilities)
-        {
-            if (a.abilityIndex == index) return a;
-        }
-
-        return null;
     }
 }

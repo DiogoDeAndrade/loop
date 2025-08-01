@@ -18,7 +18,7 @@ MonoBehaviour:
   headSpriteDown: {fileID: 21300000, guid: befc3e3d242f06d45b1d9a091f540587, type: 3}
   headSpriteLeft: {fileID: 0}
   headSpriteRight: {fileID: 21300000, guid: 84222adf64a5a37488db7238e6b23c22, type: 3}
-  maxSpeed: 350
+  maxSpeed: 150
   isPlayer: 0
   acceleration: 400
   dragCoeff: 200

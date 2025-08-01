@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UC;
 using UnityEngine;
 
 public class AbilityShoot : Ability
@@ -8,11 +9,29 @@ public class AbilityShoot : Ability
     {
         public Transform    position;
         public Projectile   projectile;
+        public bool         checkLineOfSight;
     }
 
     [SerializeField]
     private List<ProjectileShot>    projectiles;
+    [SerializeField]
+    private LayerMask               obstacleLayers;
 
+    public override bool CanTrigger(Vector3 targetPos)
+    {
+        if (!base.CanTrigger(targetPos)) return false;
+
+        // Check LoS
+        foreach (var p in projectiles)
+        {
+            Vector3 targetDir = targetPos - p.position.position;
+
+            RaycastHit2D hit = Physics2D.Raycast(p.position.position, targetDir.normalized, targetDir.magnitude, obstacleLayers);
+            if (hit.collider == null) return true;
+        }
+
+        return false;
+    }
 
     public override void Trigger(float chargeDuration)
     {
@@ -27,5 +46,16 @@ public class AbilityShoot : Ability
         }
 
         base.Trigger(chargeDuration);
+    }
+
+    public override void Destroy()
+    {
+        var sr = GetComponent<SpriteRenderer>();
+        if (sr)
+        {
+            sr.FadeTo(sr.color.ChangeAlpha(0.0f), 0.25f);
+        }
+        base.Destroy();
+        Destroy(gameObject, 0.25f);
     }
 }

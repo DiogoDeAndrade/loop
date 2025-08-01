@@ -53,9 +53,6 @@ This is some preliminary ideas to get started:
 ## Tasks
 
 * Add basic enemy
-  * Take damage
-  * Get killed
-  * Attack player
   * Pathfinding (this is the hard one)
   * Apply debuffs
 * Knife ability
@@ -75,6 +72,7 @@ This is some preliminary ideas to get started:
 - Sci-Fi UI Pack by [KenneyNL], licensed under [CC0]
 - Photos for photobashing from [Pexels](https://www.pexels.com/), free to use.
 - Heart icons created by [Kiranshastry - Flaticon](https://www.flaticon.com/free-icons/heart), free for use with attribution.
+- Energy icons created by [nawicon - Flaticon](https://www.flaticon.com/free-icons/energy), free for use with attribution.
 - Everything else done by [Diogo de Andrade], licensed through the [CC0] license.
 
 ## Sound

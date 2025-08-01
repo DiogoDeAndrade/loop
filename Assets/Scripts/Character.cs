@@ -1,11 +1,13 @@
 using NaughtyAttributes;
-using System;
+using System.Collections;
 using System.Collections.Generic;
 using UC;
 using UnityEngine;
 
 public class Character : MonoBehaviour
 {
+    const int MaxAbilities = 2;
+
     [SerializeField, Expandable]
     protected CharacterArchetype characterType;
     [SerializeField]
@@ -14,9 +16,11 @@ public class Character : MonoBehaviour
     [SerializeField]
     protected SpriteRenderer    bodySpriteRenderer;
     [SerializeField]
-    protected HeadController        headSpriteRenderer;
+    protected HeadController    headSpriteRenderer;
     [SerializeField]
     protected SpriteRenderer    shadowRenderer;
+    [SerializeField]
+    protected Transform[]       abilityHolders;
     [SerializeField]
     protected ParticleSystem    deathPS;
     [SerializeField]
@@ -24,11 +28,23 @@ public class Character : MonoBehaviour
 
     protected List<SpriteEffect>    spriteEffects;
     protected Rigidbody2D           rb;
+    protected Vector3               spawnPosition;
 
     public Faction faction => characterType.faction;
+    public bool    isAlive => health.resource > 0.0f;
+
+    protected class AbilityElem
+    {
+        public float    abilityTriggerStartTime;
+        public Ability  ability;
+    }
+    protected List<AbilityElem>   abilities;
+
 
     protected virtual void Start()
     {
+        spawnPosition = transform.position;
+
         if (characterType == null)
         {
             // Player character, fetch from GameManager
@@ -61,6 +77,10 @@ public class Character : MonoBehaviour
             health.onChange += OnDamage;
             health.onResourceEmpty += OnDeath;
         }
+
+        abilities = new();
+        for (int i = 0; i < MaxAbilities; i++) abilities.Add(null);
+        UpdateAbilities();
     }
 
     private void OnDeath(GameObject changeSource)
@@ -80,6 +100,17 @@ public class Character : MonoBehaviour
         }
 
         deathPS.Play();
+
+        DestroyAbilities();
+
+        StartCoroutine(DestroyAfterTimeCR(5.0f));
+    }
+
+    IEnumerator DestroyAfterTimeCR(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        Destroy(gameObject);
     }
 
     private void OnDamage(ResourceHandler.ChangeType changeType, float deltaValue, Vector3 changeSrcPosition, Vector3 changeSrcDirection, GameObject changeSource)
@@ -98,5 +129,41 @@ public class Character : MonoBehaviour
     public virtual float ModifyDamage(float baseDamage, Character target)
     {
         return baseDamage;
+    }
+
+    public void UpdateAbilities()
+    {
+        for (int i = 0; i < MaxAbilities; i++)
+        {
+            if (abilities[i] == null)
+            {
+                abilities[i] = new AbilityElem();
+                abilities[i].abilityTriggerStartTime = float.MaxValue;
+            }
+            abilities[i].ability = GetAbilityByIndex(i);
+        }
+    }
+
+    Ability GetAbilityByIndex(int index)
+    {
+        var abilities = GetComponentsInChildren<Ability>();
+        foreach (var a in abilities)
+        {
+            if (a.abilityIndex == index) return a;
+        }
+
+        return null;
+    }
+
+    void DestroyAbilities()
+    {
+        for (int i = 0; i< MaxAbilities; i++)
+        {
+            if (abilities[i].ability)
+            {
+                abilities[i].ability.Destroy();
+                abilities[i].ability = null;
+            }
+        }
     }
 }
