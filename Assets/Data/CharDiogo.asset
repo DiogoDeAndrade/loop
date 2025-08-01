@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6081a4fa756628446b5943720aa24e7a, type: 3}
   m_Name: CharDiogo
   m_EditorClassIdentifier: 
-  bodySprite: {fileID: -5505468425238298708, guid: af2b7cd449cd7fd4e8a13e4a9ffcbb55, type: 3}
+  bodySprite: {fileID: 21300000, guid: c80eec93cf4da0f4dbbd6d2ea8c5dcb7, type: 3}
   headSpriteUp: {fileID: 21300000, guid: caa82720bae979c4ebedca6034057205, type: 3}
   headSpriteDown: {fileID: 21300000, guid: 9d61c81214102a0439f6493c4836d12f, type: 3}
   headSpriteLeft: {fileID: 21300000, guid: 4ce98b8afe2246d4cac95a69834550bb, type: 3}
