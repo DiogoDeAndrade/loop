@@ -15,7 +15,7 @@ public class HeadController : MonoBehaviour
     SpriteRenderer      spriteRenderer;
     PolygonCollider2D   polygonCollider;
 
-    private void Start()
+    private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         polygonCollider = GetComponent<PolygonCollider2D>();
@@ -32,10 +32,13 @@ public class HeadController : MonoBehaviour
         this.leftHead = leftHead;
         this.leftFlip = leftFlip;
         this.upHead = upHead;
+
+        UpdateHead(Vector2.down);
     }
 
     public void UpdateHead(Vector2 dir)
     {
+        if (spriteRenderer == null) spriteRenderer = GetComponent<SpriteRenderer>();
         if (dir.x < -0.4f)
         {
             spriteRenderer.sprite = leftHead;

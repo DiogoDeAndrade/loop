@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6081a4fa756628446b5943720aa24e7a, type: 3}
+  m_Name: AlienDaniel
+  m_EditorClassIdentifier: 
+  faction: {fileID: 11400000, guid: d2abc00f9ee99764c9150d1ef669fec5, type: 2}
+  bodySprite: {fileID: 21300000, guid: 153d6dadbdcfdbe42a8836a142e0dd2e, type: 3}
+  headSpriteUp: {fileID: 21300000, guid: 25036faf8821ce246b2601c7e8427bcf, type: 3}
+  headSpriteDown: {fileID: 21300000, guid: c26b1ed57d7b9724c8042650caa8cfc8, type: 3}
+  headSpriteLeft: {fileID: 21300000, guid: 47315ed4e2e8e9c409a1882505a01310, type: 3}
+  headSpriteRight: {fileID: 21300000, guid: 73a63e16aa1dffd4eb1f2442be71d1fb, type: 3}
+  maxSpeed: 150
+  isPlayer: 0
+  acceleration: 400
+  dragCoeff: 200
+  initialItems: []
