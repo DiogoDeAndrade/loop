@@ -73,6 +73,7 @@ This is some preliminary ideas to get started:
 - Photos for photobashing from [Pexels](https://www.pexels.com/), free to use.
 - Heart icons created by [Kiranshastry - Flaticon](https://www.flaticon.com/free-icons/heart), free for use with attribution.
 - Energy icons created by [nawicon - Flaticon](https://www.flaticon.com/free-icons/energy), free for use with attribution.
+- Military tileset by [filthydrawings](https://filthydrawings.itch.io/military-industrial-pack), purchased.
 - Everything else done by [Diogo de Andrade], licensed through the [CC0] license.
 
 ## Sound

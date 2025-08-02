@@ -28,6 +28,8 @@ public class Player : Character
     {
         base.Start();
 
+        _isPlayer = true;
+
         rb.linearDamping = characterType.dragCoeff;
 
         moveControl.playerInput = playerInput;
@@ -58,7 +60,7 @@ public class Player : Character
     private void Update()
     {
         if (!isAlive) return;
-
+        
         inputVector = moveControl.GetAxis2().normalized;
 
         // Point to mouse

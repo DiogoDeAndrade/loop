@@ -1,9 +1,11 @@
 using UC;
 using UnityEngine;
+using static UnityEditor.PlayerSettings;
 
 public class Projectile : MonoBehaviour
 {
     [SerializeField] private Faction        _faction;
+    [SerializeField] private float          projectileHeight = 20.0f;
     [SerializeField] private float          speed = 500.0f;
     [SerializeField] private float          maxDuration = 5.0f;
     [SerializeField] private float          radius;
@@ -49,10 +51,11 @@ public class Projectile : MonoBehaviour
             {
                 dir = dir / dist;
 
-                var obstacleHit = Physics2D.CircleCast(prevPos, radius, dir, dist, Globals.obstacleMask);
+                // We offset the projectile with its height to simulate the perspective
+                var obstacleHit = Physics2D.CircleCast(prevPos + Vector3.down * projectileHeight, radius, dir, dist, Globals.obstacleMask);
                 if (obstacleHit.collider != null)
                 {
-                    DestroyProjectile(obstacleHit.point, obstacleHit.normal);
+                    DestroyProjectile(obstacleHit.point + Vector2.up * projectileHeight, obstacleHit.normal);
                 }
                 var damageHit = Physics2D.CircleCast(prevPos, radius, dir, dist, Globals.damageLayers);
                 if (damageHit.collider != null)
@@ -76,7 +79,7 @@ public class Projectile : MonoBehaviour
                         {
                             damage = _owner.ModifyDamage(damage, character);
                         }   
-                        resourceHandler.Change(ResourceHandler.ChangeType.Burst, -damage, damageHit.point, -dir, _owner.gameObject);
+                        resourceHandler.Change(ResourceHandler.ChangeType.Burst, -damage, damageHit.point, -dir, (_owner) ? (_owner.gameObject) : (null));
                     }
                     
                     DestroyProjectile(damageHit.point, damageHit.normal);

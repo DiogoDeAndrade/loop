@@ -14,5 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _obstacleMask:
     serializedVersion: 2
-    m_Bits: 0
-  _headBounceRotationLayer: 0
+    m_Bits: 704
+  _damageLayers:
+    serializedVersion: 2
+    m_Bits: 256
+  _headBounceRotationLayer: 31

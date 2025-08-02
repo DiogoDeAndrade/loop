@@ -26,12 +26,14 @@ public class Character : MonoBehaviour
     [SerializeField]
     protected Color             combatTextColorError = Color.red;
 
+    protected bool                  _isPlayer = false;
     protected List<SpriteEffect>    spriteEffects;
     protected Rigidbody2D           rb;
     protected Vector3               spawnPosition;
 
-    public Faction faction => characterType.faction;
-    public bool    isAlive => health.resource > 0.0f;
+    public Faction  faction => characterType.faction;
+    public bool     isAlive => health.resource > 0.0f;
+    public bool     isPlayer => _isPlayer;
 
     protected class AbilityElem
     {
@@ -50,6 +52,7 @@ public class Character : MonoBehaviour
             // Player character, fetch from GameManager
             characterType = GameManager.selectedCharacter;
         }
+
         rb = GetComponent<Rigidbody2D>();
 
         if (bodySpriteRenderer)

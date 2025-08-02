@@ -19,7 +19,9 @@ public class AbilityShoot : Ability
     {
         if (!base.CanTrigger(targetPos)) return false;
 
-        // Check LoS
+        // Check LoS - Only if it's not the player
+        if (character.isPlayer) return true;
+
         foreach (var p in projectiles)
         {
             Vector3 targetDir = targetPos - p.position.position;
