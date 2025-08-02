@@ -10259,7 +10259,8 @@ MonoBehaviour:
   bodySpriteRenderer: {fileID: 4459356234677722150}
   headSpriteRenderer: {fileID: 8324149850316401665}
   shadowRenderer: {fileID: 5614923673994951151}
-  abilityHolders: []
+  abilityHolders:
+  - {fileID: 2529687805267878412}
   deathPS: {fileID: 7647624602259320303}
   combatTextColorError: {r: 0.8117648, g: 0.30980393, b: 0.30980393, a: 1}
   playerInput: {fileID: 8689067000445196250}
@@ -10552,9 +10553,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a278636b2f276f54a9bbc506ba3936fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obstacleMask:
-    serializedVersion: 2
-    m_Bits: 192
 --- !u!114 &3570517659371625809
 MonoBehaviour:
   m_ObjectHideFlags: 0

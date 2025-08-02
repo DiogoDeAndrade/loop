@@ -14,8 +14,6 @@ public class AbilityShoot : Ability
 
     [SerializeField]
     private List<ProjectileShot>    projectiles;
-    [SerializeField]
-    private LayerMask               obstacleLayers;
 
     public override bool CanTrigger(Vector3 targetPos)
     {
@@ -26,7 +24,7 @@ public class AbilityShoot : Ability
         {
             Vector3 targetDir = targetPos - p.position.position;
 
-            RaycastHit2D hit = Physics2D.Raycast(p.position.position, targetDir.normalized, targetDir.magnitude, obstacleLayers);
+            RaycastHit2D hit = Physics2D.Raycast(p.position.position, targetDir.normalized, targetDir.magnitude, Globals.obstacleMask);
             if (hit.collider == null) return true;
         }
 

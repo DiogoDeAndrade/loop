@@ -7,8 +7,6 @@ public class TargetSelection : MonoBehaviour
     protected float     maxDetectionRadius = 500.0f;
     [SerializeField]
     private float       maxSearchTime = 20.0f;
-    [SerializeField] 
-    protected LayerMask obstacleLayers;
 
     protected Vector3   _targetLastSeenPos;
     protected float     _targetLastSeenTime;
@@ -45,7 +43,7 @@ public class TargetSelection : MonoBehaviour
     protected bool HasLoS(Character character)
     {
         Vector2 dir = character.transform.GetTargetPosition() - transform.GetTargetPosition();
-        var hit = Physics2D.Raycast(transform.position, dir.normalized, dir.magnitude, obstacleLayers);
+        var hit = Physics2D.Raycast(transform.position, dir.normalized, dir.magnitude, Globals.obstacleMask);
         return (hit.collider == null);
     }
 

@@ -8,8 +8,6 @@ public class Projectile : MonoBehaviour
     [SerializeField] private float          maxDuration = 5.0f;
     [SerializeField] private float          radius;
     [SerializeField] private float          _damage;
-    [SerializeField] private LayerMask      obstacleLayers;
-    [SerializeField] private LayerMask      damageLayers;
     [SerializeField] private ResourceType   damageResource;
     [SerializeField] private GameObject     destroyEffect;
 
@@ -51,12 +49,12 @@ public class Projectile : MonoBehaviour
             {
                 dir = dir / dist;
 
-                var obstacleHit = Physics2D.CircleCast(prevPos, radius, dir, dist, obstacleLayers);
+                var obstacleHit = Physics2D.CircleCast(prevPos, radius, dir, dist, Globals.obstacleMask);
                 if (obstacleHit.collider != null)
                 {
                     DestroyProjectile(obstacleHit.point, obstacleHit.normal);
                 }
-                var damageHit = Physics2D.CircleCast(prevPos, radius, dir, dist, damageLayers);
+                var damageHit = Physics2D.CircleCast(prevPos, radius, dir, dist, Globals.damageLayers);
                 if (damageHit.collider != null)
                 {
                     float damage = _damage;

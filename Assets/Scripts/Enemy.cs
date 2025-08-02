@@ -9,13 +9,9 @@ public class Enemy : Character
 
     [HorizontalLine(color: EColor.Red)]
     [SerializeField]
-    private LayerMask   obstacleLayers;
-    [SerializeField]
     private float       abilityTriggerCooldown = 0.0f;
     [SerializeField]
     private bool        aimIsPartOfAbility = false;
-    [SerializeField]
-    private TargetMode  targetMode;
 
     protected AgroList      agroList;    
     protected RotateTowards rotationTowards;

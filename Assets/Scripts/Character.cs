@@ -103,12 +103,17 @@ public class Character : MonoBehaviour
 
         DestroyAbilities();
 
-        StartCoroutine(DestroyAfterTimeCR(5.0f));
+        StartCoroutine(DestroyAfterPSEnd());
     }
 
-    IEnumerator DestroyAfterTimeCR(float delay)
+    IEnumerator DestroyAfterPSEnd()
     {
-        yield return new WaitForSeconds(delay);
+        yield return null;
+
+        while (deathPS.particleCount > 0)
+        {
+            yield return null;
+        }
 
         Destroy(gameObject);
     }

@@ -7,8 +7,6 @@ using Random = UnityEngine.Random;
 
 public class HeadController : MonoBehaviour
 {
-    [SerializeField] private LayerMask obstacleMask;
-
     Sprite              downHead;
     Sprite              rightHead;
     bool                rightFlip;
@@ -78,7 +76,7 @@ public class HeadController : MonoBehaviour
         {
             Collider2D[] results = new Collider2D[8];
             ContactFilter2D contactFilter = new ContactFilter2D();
-            contactFilter.layerMask = obstacleMask;
+            contactFilter.layerMask = Globals.obstacleMask;
             contactFilter.useTriggers = false;
             if (Physics2D.OverlapCollider(triggerCollider, contactFilter, results) == 0)
             {
@@ -95,7 +93,7 @@ public class HeadController : MonoBehaviour
 
             // Create ground plane 
             var groundPlaneObj = new GameObject();
-            groundPlaneObj.layer = LayerMask.NameToLayer("SpecialTemporaryGround");
+            groundPlaneObj.layer = Globals.headBounceRotationLayer;
             groundPlaneObj.transform.position = transform.position.ChangeY(groundY);
             var groundPlaneCollider = groundPlaneObj.AddComponent<BoxCollider2D>();
             groundPlaneCollider.offset = new Vector2(0.0f, -2.5f);
