@@ -5,11 +5,9 @@ using UnityEngine;
 public class Enemy : Character
 {
     protected enum TargetMode { AgroList, LineOfSight };
-    protected enum State { Idle, Engaging, Search };
+    public enum State { Idle, Engaging, Search };
 
     [HorizontalLine(color: EColor.Red)]
-    [SerializeField]
-    private float       maxDetectionRadius = 500.0f;
     [SerializeField]
     private LayerMask   obstacleLayers;
     [SerializeField]
@@ -18,21 +16,15 @@ public class Enemy : Character
     private bool        aimIsPartOfAbility = false;
     [SerializeField]
     private TargetMode  targetMode;
-    [SerializeField, ShowIf(nameof(isTargetLoS))]
-    private float       maxChaseRadius = 200.0f;
-    [SerializeField, ShowIf(nameof(isTargetLoS))]
-    private float       maxSearchTime = 20.0f;
 
     protected AgroList      agroList;    
     protected RotateTowards rotationTowards;
     protected float         abilityTriggerTimer;
 
-    protected State         state = State.Idle;
-    protected Vector3       targetLastSeenPos;
-    protected float         targetLastSeenTime;
-    protected Character     currentTarget;
+    protected State             _state = State.Idle;
+    protected TargetSelection   targetSelection;
 
-    bool isTargetLoS => targetMode == TargetMode.LineOfSight;
+    public State state => _state;
 
     protected override void Start()
     {
@@ -43,7 +35,7 @@ public class Enemy : Character
         health.onResourceEmpty += RemoveFromAgro;
 
         rotationTowards = GetComponentInChildren<RotateTowards>();
-        targetLastSeenPos = transform.position;
+        targetSelection = GetComponent<TargetSelection>();
     }
 
     private void RemoveFromAgro(GameObject changeSource)
@@ -61,26 +53,27 @@ public class Enemy : Character
     {
         if (!isAlive) return;
 
-        SelectTarget();
+        targetSelection.UpdateSelection();
+
+        var currentTarget = targetSelection.currentTarget;
 
         if (currentTarget != null)
         {
-            state = State.Engaging;
+            _state = State.Engaging;
         }
         else
         {
-            float elapsedSearchTime = Time.time - targetLastSeenTime;
-            if (elapsedSearchTime > maxSearchTime)
+            if (targetSelection.GetLastSeen(out Vector3 lastSeen))
             {
-                state = State.Idle;
+                _state = State.Search;
             }
             else
             {
-                state = State.Search;
+                _state = State.Idle;
             }
         }
 
-        switch (state)
+        switch (_state)
         {
             case State.Idle:
                 MoveTo(spawnPosition);
@@ -89,109 +82,19 @@ public class Enemy : Character
                 TriggerAbilities();
                 break;
             case State.Search:
-                MoveTo(targetLastSeenPos);
+                if (targetSelection.GetLastSeen(out Vector3 lastSeen))
+                {
+                    MoveTo(lastSeen);
+                }
                 break;
             default:
                 break;
         }        
     }
 
-    void SelectTarget()
-    {
-        if (targetMode == TargetMode.AgroList)
-        {
-            if (currentTarget)
-            {
-                targetLastSeenTime = Time.time;
-                targetLastSeenPos = currentTarget.transform.position;
-            }
-
-            var colliders = Physics2D.OverlapCircleAll(transform.position, maxDetectionRadius, ~0);
-            foreach (var collider in colliders)
-            {
-                Character character = collider.GetComponent<Character>();
-                if (character == null) continue;
-                if (!character.isAlive) continue;
-                if (character.faction.IsHostile(faction))
-                {
-                    // Check LoS
-                    if (HasLoS(character))
-                    { 
-                        if (agroList.GetAgro(character.gameObject) < 100.0f)
-                        {
-                            agroList.SetAgro(character.gameObject, 100.0f);
-                        }
-                    }
-                }
-            }
-
-            var agroTop = agroList.GetTop(IsCharacterAndAlive);
-            if (agroTop != null)
-            {
-                currentTarget = agroTop.GetComponent<Character>();
-                if (currentTarget)
-                {
-                    targetLastSeenTime = Time.time;
-                    targetLastSeenPos = currentTarget.transform.position;
-                }
-            }
-            else
-            {
-                currentTarget = null;
-            }
-        }
-        else if (targetMode == TargetMode.LineOfSight)
-        {
-            if (currentTarget)
-            {
-                float dist = Vector3.Distance(currentTarget.GetTargetPosition(), transform.GetTargetPosition());
-                if (dist < maxChaseRadius)
-                {
-                    if (HasLoS(currentTarget))
-                    {
-                        targetLastSeenPos = currentTarget.GetTargetPosition();
-                        targetLastSeenTime = Time.time;
-                    }
-                    else
-                    {
-                        currentTarget = null;
-                    }
-                }
-                else
-                {
-                    currentTarget = null;
-                }
-            }
-            if (currentTarget == null)
-            {
-                // Find the closest target in range and in LoS
-                float closestDist = float.MaxValue;
-                var colliders = Physics2D.OverlapCircleAll(transform.position, maxDetectionRadius, ~0);
-                foreach (var collider in colliders)
-                {
-                    Character character = collider.GetComponent<Character>();
-                    if (character == null) continue;
-                    if (!character.isAlive) continue;
-                    if (character.faction.IsHostile(faction))
-                    {
-                        float distToCharacter = Vector3.Distance(character.transform.position, transform.position);
-                        if (distToCharacter < closestDist)
-                        {
-                            // Check LoS
-                            if (HasLoS(character))
-                            {
-                                currentTarget = character;
-                                closestDist = distToCharacter;
-                            }
-                        }
-                    }
-                }
-            }            
-        }
-    }
-
     void TriggerAbilities()
     {
+        var currentTarget = targetSelection.currentTarget;
         if (currentTarget)
         {
             headSpriteRenderer?.UpdateHead((currentTarget.GetTargetPosition() - transform.position).normalized);
@@ -239,20 +142,6 @@ public class Enemy : Character
         }
     }
 
-    private bool IsCharacterAndAlive(GameObject target, float value)
-    {
-        var character = target.GetComponent<Character>();
-        if (character == null) return false;
-        return character.isAlive;
-    }
-
-    bool HasLoS(Character character)
-    {
-        Vector2 dir = character.transform.GetTargetPosition() - transform.GetTargetPosition();
-        var hit = Physics2D.Raycast(transform.position, dir.normalized, dir.magnitude, obstacleLayers);
-        return (hit.collider == null);
-    }
-
     bool MoveTo(Vector3 targetPosition)
     {
         float maxDisp = characterType.maxSpeed * Time.deltaTime;
@@ -273,17 +162,4 @@ public class Enemy : Character
         return true;
     }
 
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, maxDetectionRadius);
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, maxChaseRadius);
-
-        if ((state == State.Idle) || (state == State.Search))
-        {
-            Gizmos.color = Color.red;
-            Gizmos.DrawLine(transform.position, targetLastSeenPos);
-        }
-    }
 }

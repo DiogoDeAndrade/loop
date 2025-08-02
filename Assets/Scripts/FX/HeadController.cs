@@ -88,8 +88,6 @@ public class HeadController : MonoBehaviour
 
         if (headRoll)
         {
-            UnityEditor.EditorApplication.isPaused = true;
-
             // Remember current Y position as "ground" height
             float groundY = transform.position.y;
             Character character = GetComponentInParent<Character>();

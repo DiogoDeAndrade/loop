@@ -222,6 +222,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7739623793983631306, guid: 9cb989449a79bdd43a8a9fe599b7e60c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8321474340973826441}
+    - targetCorrespondingSourceObject: {fileID: 7739623793983631306, guid: 9cb989449a79bdd43a8a9fe599b7e60c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5068055332814980603}
     - targetCorrespondingSourceObject: {fileID: 8838158422563871401, guid: 9cb989449a79bdd43a8a9fe599b7e60c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4069300173380955907}
@@ -350,15 +353,12 @@ MonoBehaviour:
   abilityHolders: []
   deathPS: {fileID: 8303155949603322902}
   combatTextColorError: {r: 0.8117648, g: 0.30980393, b: 0.30980393, a: 1}
-  maxDetectionRadius: 500
   obstacleLayers:
     serializedVersion: 2
     m_Bits: 192
   abilityTriggerCooldown: 2
   aimIsPartOfAbility: 0
   targetMode: 0
-  maxChaseRadius: 200
-  maxSearchTime: 20
 --- !u!114 &8321474340973826441
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -380,6 +380,24 @@ MonoBehaviour:
   obstacleMask:
     serializedVersion: 2
     m_Bits: 0
+--- !u!114 &5068055332814980603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8247151410043207219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 342cad434f408e74c851d1e106a74109, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxDetectionRadius: 88
+  maxSearchTime: 20
+  obstacleLayers:
+    serializedVersion: 2
+    m_Bits: 192
+  maxChaseRadius: 200
 --- !u!198 &8303155949603322902 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 7647624602259320303, guid: 9cb989449a79bdd43a8a9fe599b7e60c, type: 3}
