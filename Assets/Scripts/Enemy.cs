@@ -23,7 +23,7 @@ public class Enemy : Character
     [SerializeField, ShowIf(nameof(isTargetLoS))]
     private float       maxSearchTime = 20.0f;
 
-    protected AgroList      agroList;
+    protected AgroList      agroList;    
     protected RotateTowards rotationTowards;
     protected float         abilityTriggerTimer;
 

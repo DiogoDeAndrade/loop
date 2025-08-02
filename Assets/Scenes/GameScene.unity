@@ -51899,6 +51899,79 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1001 &1161782525
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3504008295119502544, guid: 4ba9cc54dd16a0f47a2269460a1202b6, type: 3}
+      propertyPath: targetMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3504008295119502544, guid: 4ba9cc54dd16a0f47a2269460a1202b6, type: 3}
+      propertyPath: aimIsPartOfAbility
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3504008295119502544, guid: 4ba9cc54dd16a0f47a2269460a1202b6, type: 3}
+      propertyPath: maxDetectionRadius
+      value: 86.88
+      objectReference: {fileID: 0}
+    - target: {fileID: 6749205070720875387, guid: 4ba9cc54dd16a0f47a2269460a1202b6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -98.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6749205070720875387, guid: 4ba9cc54dd16a0f47a2269460a1202b6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -192
+      objectReference: {fileID: 0}
+    - target: {fileID: 6749205070720875387, guid: 4ba9cc54dd16a0f47a2269460a1202b6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6749205070720875387, guid: 4ba9cc54dd16a0f47a2269460a1202b6, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6749205070720875387, guid: 4ba9cc54dd16a0f47a2269460a1202b6, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6749205070720875387, guid: 4ba9cc54dd16a0f47a2269460a1202b6, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6749205070720875387, guid: 4ba9cc54dd16a0f47a2269460a1202b6, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6749205070720875387, guid: 4ba9cc54dd16a0f47a2269460a1202b6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6749205070720875387, guid: 4ba9cc54dd16a0f47a2269460a1202b6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6749205070720875387, guid: 4ba9cc54dd16a0f47a2269460a1202b6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8247151410043207219, guid: 4ba9cc54dd16a0f47a2269460a1202b6, type: 3}
+      propertyPath: m_Name
+      value: Roswellian (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8247151410043207219, guid: 4ba9cc54dd16a0f47a2269460a1202b6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4ba9cc54dd16a0f47a2269460a1202b6, type: 3}
 --- !u!1001 &1163389099
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -52548,7 +52621,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1448168245}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0.00008726013, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -52556,7 +52629,7 @@ Transform:
   - {fileID: 1093941959}
   - {fileID: 1909236916}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0.01, y: 0, z: 0}
 --- !u!1 &1481043034
 GameObject:
   m_ObjectHideFlags: 0
@@ -53256,7 +53329,7 @@ TilemapRenderer:
   m_MaxChunkCount: 16
   m_MaxFrameAge: 16
   m_SortOrder: 0
-  m_Mode: 0
+  m_Mode: 1
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 0
 --- !u!1839735485 &1909236921
@@ -57775,6 +57848,7 @@ SceneRoots:
   - {fileID: 8580486071759002471}
   - {fileID: 1280036541}
   - {fileID: 1163389099}
+  - {fileID: 1161782525}
   - {fileID: 8550054}
   - {fileID: 954190393}
   - {fileID: 1166644119}

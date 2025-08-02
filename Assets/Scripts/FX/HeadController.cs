@@ -3,9 +3,12 @@ using System.Collections;
 using UC;
 using Unity.VisualScripting;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class HeadController : MonoBehaviour
 {
+    [SerializeField] private LayerMask obstacleMask;
+
     Sprite              downHead;
     Sprite              rightHead;
     bool                rightFlip;
@@ -13,12 +16,17 @@ public class HeadController : MonoBehaviour
     bool                leftFlip;
     Sprite              upHead;
     SpriteRenderer      spriteRenderer;
-    PolygonCollider2D   polygonCollider;
+    Collider2D          triggerCollider;
+    PolygonCollider2D   polygonCollider;    
+    bool                headRoll = false;
+    ParticleSystem      deathPS;
 
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         polygonCollider = GetComponent<PolygonCollider2D>();
+        triggerCollider = GetComponent<Collider2D>();
+        deathPS = GetComponentInChildren<ParticleSystem>();
     }
 
     public void SetHeads(Sprite downHead,
@@ -66,45 +74,75 @@ public class HeadController : MonoBehaviour
 
     public void PopOff(Vector3 dir)
     {
-        // Remember current Y position as "ground" height
-        float groundY = transform.position.y;
-        Character character = GetComponentInParent<Character>();
-        if (character) groundY = character.transform.position.y;
-
-        // Create ground plane 
-        var groundPlaneObj = new GameObject();
-        groundPlaneObj.layer = LayerMask.NameToLayer("SpecialTemporaryGround");
-        groundPlaneObj.transform.position = character.transform.position;
-        var groundPlaneCollider = groundPlaneObj.AddComponent<BoxCollider2D>();
-        groundPlaneCollider.offset = new Vector2(0.0f, -2.5f);
-        groundPlaneCollider.size = new Vector2(400.0f, 5.0f);
-
-        // Detach from parent
-        transform.SetParent(null);
-
-        // Ensure the object has a Rigidbody2D
-        var rb = GetComponent<Rigidbody2D>();
-        if (rb == null)
+        if (triggerCollider)
         {
-            rb = gameObject.AddComponent<Rigidbody2D>();
+            Collider2D[] results = new Collider2D[8];
+            ContactFilter2D contactFilter = new ContactFilter2D();
+            contactFilter.layerMask = obstacleMask;
+            contactFilter.useTriggers = false;
+            if (Physics2D.OverlapCollider(triggerCollider, contactFilter, results) == 0)
+            {
+                headRoll = true;
+            }
         }
 
-        rb.gravityScale = 4.0f; // Enable gravity
-        rb.angularDamping = 0.4f;
-        rb.linearDamping = 0.3f;
-        rb.includeLayers = LayerMask.GetMask("SpecialTemporaryGround");
+        if (headRoll)
+        {
+            UnityEditor.EditorApplication.isPaused = true;
 
-        // Refresh collider
-        if (polygonCollider) polygonCollider.SetSprite(spriteRenderer.sprite);
+            // Remember current Y position as "ground" height
+            float groundY = transform.position.y;
+            Character character = GetComponentInParent<Character>();
+            if (character) groundY = character.transform.position.y;
 
-        // Apply a pop force (tweak values as needed)
-        rb.AddForce(new Vector2(dir.x, Mathf.Abs(dir.y)) * 40f, ForceMode2D.Impulse);
+            // Create ground plane 
+            var groundPlaneObj = new GameObject();
+            groundPlaneObj.layer = LayerMask.NameToLayer("SpecialTemporaryGround");
+            groundPlaneObj.transform.position = transform.position.ChangeY(groundY);
+            var groundPlaneCollider = groundPlaneObj.AddComponent<BoxCollider2D>();
+            groundPlaneCollider.offset = new Vector2(0.0f, -2.5f);
+            groundPlaneCollider.size = new Vector2(400.0f, 5.0f);
 
-        float spin = UnityEngine.Random.Range(-400f, 400f); // random spin direction and speed
-        rb.AddTorque(spin, ForceMode2D.Impulse);
+            // Detach from parent
+            transform.SetParent(null);
 
-        // Start coroutine to stop the fall at ground level
-        StartCoroutine(BounceAndFade(rb, groundPlaneObj));
+            // Ensure the object has a Rigidbody2D
+            var rb = GetComponent<Rigidbody2D>();
+            if (rb == null)
+            {
+                rb = gameObject.AddComponent<Rigidbody2D>();
+            }
+
+            rb.gravityScale = 4.0f; // Enable gravity
+            rb.angularDamping = 0.4f;
+            rb.linearDamping = 0.3f;
+            rb.includeLayers = LayerMask.GetMask("SpecialTemporaryGround");
+
+            // Refresh collider
+            if (polygonCollider) polygonCollider.SetSprite(spriteRenderer.sprite);
+            if (triggerCollider) triggerCollider.isTrigger = false;
+
+            headRoll = true;
+
+            // Apply a pop force (tweak values as needed)
+            rb.AddForce(new Vector2(dir.x, Mathf.Abs(dir.y)) * 40f, ForceMode2D.Impulse);
+
+            rb.angularVelocity = -Mathf.Sign(dir.x) * Random.Range(100f, 200f);
+
+            // Start coroutine to stop the fall at ground level
+            StartCoroutine(BounceAndFade(rb, groundPlaneObj));
+        }
+        else
+        {
+            // Explode head (on collider, no way to cleanly solve it)            
+            transform.SetParent(null);
+
+            deathPS?.Play();
+
+            spriteRenderer.enabled = false;
+
+            StartCoroutine(DestroyOnPSEnd());
+        }
     }
 
     private IEnumerator BounceAndFade(Rigidbody2D rb, GameObject groundPlaneObj)
@@ -127,8 +165,6 @@ public class HeadController : MonoBehaviour
 
                 if (stillTime >= stillTimeThreshold)
                 {
-                    Debug.Log("Object is still. Triggering fade.");
-
                     rb.linearVelocity = Vector2.zero;
                     rb.angularVelocity = 0f;
                     rb.gravityScale = 0;
@@ -151,5 +187,15 @@ public class HeadController : MonoBehaviour
 
             yield return new WaitForFixedUpdate();
         }
+    }
+
+    private IEnumerator DestroyOnPSEnd()
+    {
+        yield return null;
+        while (deathPS.particleCount > 0)
+        {
+            yield return null;
+        }
+        Destroy(gameObject);
     }
 }

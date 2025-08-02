@@ -24,7 +24,7 @@ This is some preliminary ideas to get started:
     * Wands spend either spend mana, or have limited charges
     * Player has inventory to choose what wand to use
     * Can carry as many wands as he wants
-* Day and night cycle
+* Day and night cycle - Makes little sense with the sci-fi
   * At night it gets dark
   * Player has a small light radius (can be improved on skills)
   * Drain something over time?

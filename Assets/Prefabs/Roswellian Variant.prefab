@@ -56,6 +56,18 @@ PrefabInstance:
       propertyPath: offset.y
       value: 19
       objectReference: {fileID: 0}
+    - target: {fileID: 4275573473090262511, guid: 9cb989449a79bdd43a8a9fe599b7e60c, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key1.b
+      value: 0.1764706
+      objectReference: {fileID: 0}
+    - target: {fileID: 4275573473090262511, guid: 9cb989449a79bdd43a8a9fe599b7e60c, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key1.g
+      value: 0.90588236
+      objectReference: {fileID: 0}
+    - target: {fileID: 4275573473090262511, guid: 9cb989449a79bdd43a8a9fe599b7e60c, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key1.r
+      value: 0.24371988
+      objectReference: {fileID: 0}
     - target: {fileID: 4431176124263056827, guid: 9cb989449a79bdd43a8a9fe599b7e60c, type: 3}
       propertyPath: m_Size.x
       value: 12.5
@@ -275,7 +287,7 @@ PolygonCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -343,6 +355,10 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 192
   abilityTriggerCooldown: 2
+  aimIsPartOfAbility: 0
+  targetMode: 0
+  maxChaseRadius: 200
+  maxSearchTime: 20
 --- !u!114 &8321474340973826441
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -364,7 +380,6 @@ MonoBehaviour:
   obstacleMask:
     serializedVersion: 2
     m_Bits: 0
-  agroGainForLoS: 0
 --- !u!198 &8303155949603322902 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 7647624602259320303, guid: 9cb989449a79bdd43a8a9fe599b7e60c, type: 3}
