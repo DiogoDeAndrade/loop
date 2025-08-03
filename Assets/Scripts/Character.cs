@@ -29,7 +29,7 @@ public class Character : MonoBehaviour
     protected bool                  _isPlayer = false;
     protected List<SpriteEffect>    spriteEffects;
     protected Rigidbody2D           rb;
-    protected Vector3               spawnPosition;
+    protected Vector2               spawnPosition;
 
     public Faction  faction => characterType.faction;
     public bool     isAlive => health.resource > 0.0f;
@@ -75,15 +75,18 @@ public class Character : MonoBehaviour
             if (headSpriteRendererSE) spriteEffects.Add(headSpriteRendererSE);
         }
 
+        abilities = new();
+        for (int i = 0; i < MaxAbilities; i++) abilities.Add(null);
+        UpdateAbilities();
+    }
+
+    private void OnDestroy()
+    {
         if (health)
         {
             health.onChange += OnDamage;
             health.onResourceEmpty += OnDeath;
         }
-
-        abilities = new();
-        for (int i = 0; i < MaxAbilities; i++) abilities.Add(null);
-        UpdateAbilities();
     }
 
     private void OnDeath(GameObject changeSource)

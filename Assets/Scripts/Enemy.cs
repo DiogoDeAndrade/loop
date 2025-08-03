@@ -1,24 +1,39 @@
 using NaughtyAttributes;
 using UC;
 using UnityEngine;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 public class Enemy : Character
 {
     protected enum TargetMode { AgroList, LineOfSight };
-    public enum State { Idle, Engaging, Search };
+    public enum State { Idle, Patrol, Engaging, GotoLastSeen, Search };
 
     [HorizontalLine(color: EColor.Red)]
     [SerializeField]
     private float       abilityTriggerCooldown = 0.0f;
     [SerializeField]
     private bool        aimIsPartOfAbility = false;
+    [SerializeField]
+    private bool        enablePatrol = false;
+    [SerializeField, ShowIf(nameof(enablePatrol))]
+    private float       patrolRadius;
+    [SerializeField]
+    private float       maxSearchTime = 20.0f;
+    [SerializeField]
+    private float       searchRadius = 100.0f;
 
     protected AgroList      agroList;    
     protected RotateTowards rotationTowards;
     protected float         abilityTriggerTimer;
 
     protected State             _state = State.Idle;
+    protected float             lastStateTransitionTime = -float.MaxValue; 
     protected TargetSelection   targetSelection;
+    protected Vector2           searchPivot;
+
+    protected NavMeshAgent2d    agent;
 
     public State state => _state;
 
@@ -27,23 +42,14 @@ public class Enemy : Character
         base.Start();
 
         agroList = GetComponent<AgroList>();
-        health.onChange += AddAgro;
-        health.onResourceEmpty += RemoveFromAgro;
 
         rotationTowards = GetComponentInChildren<RotateTowards>();
         targetSelection = GetComponent<TargetSelection>();
+
+        agent = GetComponent<NavMeshAgent2d>();
+        agent.SetMaxSpeed(characterType.maxSpeed);
     }
 
-    private void RemoveFromAgro(GameObject changeSource)
-    {
-        agroList?.SetAgro(changeSource, -float.MaxValue);
-    }
-
-    private void AddAgro(ResourceHandler.ChangeType changeType, float deltaValue, Vector3 changeSrcPosition, Vector3 changeSrcDirection, GameObject changeSource)
-    {
-        if (deltaValue < 0.0f)
-            agroList?.AddAgro(changeSource, -deltaValue);
-    }
 
     private void Update()
     {
@@ -53,39 +59,85 @@ public class Enemy : Character
 
         var currentTarget = targetSelection.currentTarget;
 
-        if (currentTarget != null)
-        {
-            _state = State.Engaging;
-        }
-        else
-        {
-            if (targetSelection.GetLastSeen(out Vector3 lastSeen))
-            {
-                _state = State.Search;
-            }
-            else
-            {
-                _state = State.Idle;
-            }
-        }
-
         switch (_state)
         {
             case State.Idle:
-                MoveTo(spawnPosition);
+                if (currentTarget)
+                {
+                    SetState(State.Engaging);
+                }
+                else
+                {
+                    agent.MoveTo(spawnPosition);
+
+                    if (!agent.isMoving)
+                    {
+                        if (enablePatrol)
+                        {
+                            SetState(State.Patrol);
+                        }
+                    }
+                }
+                break;
+            case State.Patrol:
+                if (currentTarget)
+                {
+                    SetState(State.Engaging);
+                }
+                else
+                {
+                    if (!agent.isMoving)
+                    {
+                        Vector2 newTargetPos = spawnPosition + Random.insideUnitCircle * patrolRadius;
+                        agent.MoveTo(newTargetPos);
+                    }
+                }
                 break;
             case State.Engaging:
-                TriggerAbilities();
+                if (currentTarget)
+                {
+                    TriggerAbilities();
+                }
+                else
+                {
+                    SetState(State.GotoLastSeen);
+                }
                 break;
-            case State.Search:
+            case State.GotoLastSeen:
                 if (targetSelection.GetLastSeen(out Vector3 lastSeen))
                 {
-                    MoveTo(lastSeen);
+                    agent.MoveTo(lastSeen);
+
+                    if (!agent.isMoving)
+                    {
+                        SetState(State.Search);
+                        searchPivot = transform.position;
+                    }
+                }
+                else
+                {
+                    SetState(State.Idle);
+                }
+                    break;
+            case State.Search:
+                {
+                    if (stateElapsedTime > maxSearchTime)
+                    {
+                        SetState(State.Idle);
+                    }
+                    else
+                    {
+                        if (!agent.isMoving)
+                        {
+                            Vector2 newTargetPos = searchPivot + Random.insideUnitCircle * searchRadius;
+                            agent.MoveTo(newTargetPos);
+                        }
+                    }
                 }
                 break;
             default:
                 break;
-        }        
+        }
     }
 
     void TriggerAbilities()
@@ -138,24 +190,23 @@ public class Enemy : Character
         }
     }
 
-    bool MoveTo(Vector3 targetPosition)
+    void SetState(State newState)
     {
-        float maxDisp = characterType.maxSpeed * Time.deltaTime;
-
-        Vector3 moveDir = (targetPosition - transform.position);
-        if (moveDir.magnitude < maxDisp)
-        {
-            rb.linearVelocity = Vector2.zero;
-            return false;
-        }
-
-        moveDir.Normalize();
-
-        rb.linearVelocity = moveDir * characterType.maxSpeed;
-
-        headSpriteRenderer?.UpdateHead(moveDir);
-
-        return true;
+        if (_state == newState) return;
+        _state = newState;
+        lastStateTransitionTime = Time.time;
     }
+    public float stateElapsedTime => Time.time - lastStateTransitionTime;
 
+    private void OnDrawGizmos()
+    {
+#if UNITY_EDITOR
+        if (!Application.isPlaying)
+            return;
+
+        string label = $"{gameObject.name} [{_state}]";
+        Handles.color = Color.red;
+        Handles.Label(transform.position + Vector3.up * 1.5f, label);
+#endif
+    }
 }

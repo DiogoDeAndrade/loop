@@ -217,6 +217,9 @@ PrefabInstance:
       addedObject: {fileID: 6470958213417461052}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 7739623793983631306, guid: 9cb989449a79bdd43a8a9fe599b7e60c, type: 3}
+      insertIndex: 9
+      addedObject: {fileID: 8321474340973826441}
+    - targetCorrespondingSourceObject: {fileID: 7739623793983631306, guid: 9cb989449a79bdd43a8a9fe599b7e60c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3504008295119502544}
     - targetCorrespondingSourceObject: {fileID: 7739623793983631306, guid: 9cb989449a79bdd43a8a9fe599b7e60c, type: 3}
@@ -224,7 +227,7 @@ PrefabInstance:
       addedObject: {fileID: 5068055332814980603}
     - targetCorrespondingSourceObject: {fileID: 7739623793983631306, guid: 9cb989449a79bdd43a8a9fe599b7e60c, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 8321474340973826441}
+      addedObject: {fileID: 7908518580468525764}
     - targetCorrespondingSourceObject: {fileID: 8838158422563871401, guid: 9cb989449a79bdd43a8a9fe599b7e60c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4069300173380955907}
@@ -333,6 +336,25 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7739623793983631306, guid: 9cb989449a79bdd43a8a9fe599b7e60c, type: 3}
   m_PrefabInstance: {fileID: 1809160993313559033}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8321474340973826441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8247151410043207219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5651799550359b54fb46bf5d852ced2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  refreshTime: 1
+  agroDecayPerTime: 1
+  agroDecayPerDistance: 0
+  is3D: 0
+  agroMaxDistance: 1000
+  useLoS: 0
+  agroGainOnDamage: 1
 --- !u!114 &3504008295119502544
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -355,7 +377,11 @@ MonoBehaviour:
   deathPS: {fileID: 8303155949603322902}
   combatTextColorError: {r: 0.8117648, g: 0.30980393, b: 0.30980393, a: 1}
   abilityTriggerCooldown: 2
-  aimIsPartOfAbility: 0
+  aimIsPartOfAbility: 1
+  enablePatrol: 0
+  patrolRadius: 0
+  maxSearchTime: 20
+  searchRadius: 100
 --- !u!114 &5068055332814980603
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -369,9 +395,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxDetectionRadius: 88
-  maxSearchTime: 20
+  maxMemoryTime: 20
   maxChaseRadius: 200
---- !u!114 &8321474340973826441
+--- !u!114 &7908518580468525764
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -380,15 +406,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 8247151410043207219}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5651799550359b54fb46bf5d852ced2f, type: 3}
+  m_Script: {fileID: 11500000, guid: 52e58ac11d8e06c468329cf063a90d51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  refreshTime: 1
-  agroDecayPerTime: 1
-  agroDecayPerDistance: 0
-  is3D: 0
-  agroMaxDistance: 1000
-  useLoS: 0
+  agentType: {fileID: 0}
+  maxSpeed: 0
+  stopDistance: 2
 --- !u!198 &8303155949603322902 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 7647624602259320303, guid: 9cb989449a79bdd43a8a9fe599b7e60c, type: 3}

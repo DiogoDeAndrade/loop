@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Globals", menuName = "Loop/Globals")]
 public class Globals : GlobalsBase
 {
-    [HorizontalLine(color: EColor.Red)]
+    [HorizontalLine(color: EColor.Blue)]
     [SerializeField]
     private LayerMask   _damageLayers;
     [SerializeField, Layer]

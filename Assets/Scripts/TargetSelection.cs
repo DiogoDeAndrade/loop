@@ -6,7 +6,7 @@ public class TargetSelection : MonoBehaviour
     [SerializeField]
     protected float     maxDetectionRadius = 500.0f;
     [SerializeField]
-    private float       maxSearchTime = 20.0f;
+    private float       maxMemoryTime = 20.0f;
 
     protected Vector3   _targetLastSeenPos;
     protected float     _targetLastSeenTime;
@@ -23,6 +23,7 @@ public class TargetSelection : MonoBehaviour
     {
         ownerEnemy = GetComponent<Enemy>();
         _targetLastSeenPos = transform.position;
+        _targetLastSeenTime = -float.MaxValue;
 
     }
 
@@ -37,7 +38,7 @@ public class TargetSelection : MonoBehaviour
 
         if ((_prevTarget != null) && (!_prevTarget.isAlive)) return false;
 
-        return (Time.time - _targetLastSeenTime < maxSearchTime);
+        return (Time.time - _targetLastSeenTime < maxMemoryTime);
     }
 
     protected bool HasLoS(Character character)
@@ -54,7 +55,7 @@ public class TargetSelection : MonoBehaviour
 
         if ((Application.isPlaying) && (ownerEnemy != null))
         {
-            if ((ownerEnemy.state == Enemy.State.Idle) || (ownerEnemy.state == Enemy.State.Search))
+            if ((ownerEnemy.state == Enemy.State.Idle) || (ownerEnemy.state == Enemy.State.GotoLastSeen))
             {
                 Gizmos.color = Color.red;
                 Gizmos.DrawLine(transform.position, _targetLastSeenPos);

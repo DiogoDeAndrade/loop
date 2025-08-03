@@ -1,4 +1,3 @@
-using NaughtyAttributes;
 using UC;
 using UnityEngine;
 
@@ -6,6 +5,28 @@ public class TargetSelection_LineOfSight : TargetSelection
 {
     [SerializeField]
     private float maxChaseRadius = 200.0f;
+
+    private void OnEnable()
+    {
+        var health = this.FindResourceHandler(Globals.healthResource);
+        if (health) health.onChange += SetTargetIfHit;
+    }
+
+    private void OnDisable()
+    {
+        var health = this.FindResourceHandler(Globals.healthResource);
+        if (health) health.onChange -= SetTargetIfHit;
+    }
+
+    private void SetTargetIfHit(ResourceHandler.ChangeType changeType, float deltaValue, Vector3 changeSrcPosition, Vector3 changeSrcDirection, GameObject changeSource)
+    {
+        if (_currentTarget) return;
+
+        if (deltaValue < 0)
+        {
+            _currentTarget = changeSource.GetComponent<Character>();
+        }
+    }
 
     public override void UpdateSelection()
     {

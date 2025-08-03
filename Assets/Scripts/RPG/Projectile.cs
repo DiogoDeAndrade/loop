@@ -1,6 +1,5 @@
 using UC;
 using UnityEngine;
-using static UnityEditor.PlayerSettings;
 
 public class Projectile : MonoBehaviour
 {
