@@ -1,6 +1,7 @@
 # LOOP
 
-This project is for my [Game Makers ToolKit Game Jam'25] entry.
+This project was for my [Game Makers ToolKit Game Jam'25] entry, but I abandoned it and focused on the systems themselves and finally on the NavMesh2d system.
+I'll carry on this project to be able to test these two components: the RPG generic system, and the NavMesh2d system.
 
 ## Gameplay
 
@@ -63,7 +64,6 @@ This is some preliminary ideas to get started:
 * Skill tree
 * Inventory tooltips
 
-
 ## Art
 
 - Font "Alagard" by [Hewett Tsoi]
@@ -83,8 +83,10 @@ This is some preliminary ideas to get started:
 ## Code
 
 - Some code was adapted/refactored from [Okapi Kit], licensed under the [MIT] license.
-- Uses [Naughty Attributes], licensed under the [MIT] license.
-- Uses [Unity Common], licensed under the [MIT] license.
+- [NaughtyAttributes] by Denis Rizov available through the [MIT] license: https://github.com/dbrizov/NaughtyAttributes.git#upm
+- [Unity Common], licensed under the [MIT] license.
+- [UnityMeshSimplifier] available through the [MIT] license.
+- [MadWorldNL EarCut] available through the [MIT] license.
 - All remaining game source code by Diogo de Andrade is licensed under the [MIT] license.
 
 ## Metadata
@@ -101,4 +103,6 @@ This is some preliminary ideas to get started:
 [CC-BY 3.0]:https://creativecommons.org/licenses/by/3.0/
 [CC-BY-SA 4.0]:http://creativecommons.org/licenses/by-sa/4.0/
 [CC-BY 4.0]:https://creativecommons.org/licenses/by/4.0/
+[UnityMeshSimplifier]:https://github.com/Whinarn/UnityMeshSimplifier
+[MadWorldNL EarCut]:https://github.com/MadWorldNL/EarCut
 [MIT]:LICENSE
