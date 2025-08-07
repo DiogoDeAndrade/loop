@@ -409,9 +409,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52e58ac11d8e06c468329cf063a90d51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agentType: {fileID: 0}
-  maxSpeed: 0
-  stopDistance: 2
+  agentType: {fileID: 11400000, guid: 2c89feda74e60cc41895b1b3976390e4, type: 2}
+  speed: 100
+  angularSpeed: 3600
+  acceleration: 100
+  stoppingDistance: 5
 --- !u!198 &8303155949603322902 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 7647624602259320303, guid: 9cb989449a79bdd43a8a9fe599b7e60c, type: 3}

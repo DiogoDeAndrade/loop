@@ -68,7 +68,7 @@ public class Enemy : Character
                 }
                 else
                 {
-                    agent.MoveTo(spawnPosition);
+                    agent.SetDestination(spawnPosition);
 
                     if (!agent.isMoving)
                     {
@@ -89,7 +89,7 @@ public class Enemy : Character
                     if (!agent.isMoving)
                     {
                         Vector2 newTargetPos = spawnPosition + Random.insideUnitCircle * patrolRadius;
-                        agent.MoveTo(newTargetPos);
+                        agent.SetDestination(newTargetPos);
                     }
                 }
                 break;
@@ -106,7 +106,7 @@ public class Enemy : Character
             case State.GotoLastSeen:
                 if (targetSelection.GetLastSeen(out Vector3 lastSeen))
                 {
-                    agent.MoveTo(lastSeen);
+                    agent.SetDestination(lastSeen);
 
                     if (!agent.isMoving)
                     {
@@ -130,7 +130,7 @@ public class Enemy : Character
                         if (!agent.isMoving)
                         {
                             Vector2 newTargetPos = searchPivot + Random.insideUnitCircle * searchRadius;
-                            agent.MoveTo(newTargetPos);
+                            agent.SetDestination(newTargetPos);
                         }
                     }
                 }

@@ -37,8 +37,11 @@ public abstract class Ability : MonoBehaviour
     public void Start()
     {
         character = GetComponentInParent<Character>();
-        inventory = character.GetComponent<Inventory>();
-        resource = character.FindResourceHandler(resourceType);
+        if (character)
+        {
+            inventory = character.GetComponent<Inventory>();
+            resource = character.FindResourceHandler(resourceType);
+        }
     }
 
     public virtual bool HasAmmo()
