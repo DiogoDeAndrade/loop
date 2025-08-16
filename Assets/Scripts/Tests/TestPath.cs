@@ -43,6 +43,12 @@ public class TestPath : MonoBehaviour
         }
     }
 
+    [Button("Teleport To Start")]
+    void TeleportToStart()
+    {
+        transform.position = startPos.position;
+    }
+
     [Button("Move To Start")]
     void MoveToStart()
     {
