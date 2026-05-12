@@ -74,6 +74,7 @@ This is some preliminary ideas to get started:
 - Heart icons created by [Kiranshastry - Flaticon](https://www.flaticon.com/free-icons/heart), free for use with attribution.
 - Energy icons created by [nawicon - Flaticon](https://www.flaticon.com/free-icons/energy), free for use with attribution.
 - Military tileset by [filthydrawings](https://filthydrawings.itch.io/military-industrial-pack), purchased.
+- [Cave Tileset (free)](https://the-pixel-nook.itch.io/cave-tileset-free) by [The Pixel Nook](https://the-pixel-nook.itch.io/), free for personal use.
 - Everything else done by [Diogo de Andrade], licensed through the [CC0] license.
 
 ## Sound
