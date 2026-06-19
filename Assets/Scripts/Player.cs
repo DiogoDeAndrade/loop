@@ -43,7 +43,7 @@ public class Player : Character
         {
             foreach (var item in characterType.initialItems)
             {
-                inventory.Add(item.item, item.count);
+                inventory.Add(item);
             }
         }
 
@@ -85,7 +85,7 @@ public class Player : Character
                     switch (ability.triggerMode)
                     {
                         case Ability.TriggerMode.Single:
-                            if (abilityControl[i].IsDown()) CombatTextManager.SpawnText(gameObject, "No bullets!", combatTextColorError, combatTextColorError.ChangeAlpha(0.0f));
+                            if (abilityControl[i].IsDown()) CombatTextManager.SpawnText(gameObject, "No bullets!", new CombatTextDef(combatTextColorError, combatTextColorError.ChangeAlpha(0.0f), 0.0f));
                             break;
                         case Ability.TriggerMode.Charge:
                             break;

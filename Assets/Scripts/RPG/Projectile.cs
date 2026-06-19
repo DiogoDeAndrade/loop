@@ -1,4 +1,5 @@
 using UC;
+using UC.RPG;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour
@@ -77,8 +78,13 @@ public class Projectile : MonoBehaviour
                         if (character)
                         {
                             damage = _owner.ModifyDamage(damage, character);
-                        }   
-                        resourceHandler.Change(ResourceHandler.ChangeType.Burst, -damage, damageHit.point, -dir, (_owner) ? (_owner.gameObject) : (null));
+                        }
+                        resourceHandler.Change(new ChangeData(-damage, ChangeType.Burst)
+                        {
+                            changeSrcPosition = damageHit.point,
+                            changeSrcDirection = -dir,
+                            source = (_owner) ? (_owner.gameObject) : (null)
+                        });
                     }
                     
                     DestroyProjectile(damageHit.point, damageHit.normal);

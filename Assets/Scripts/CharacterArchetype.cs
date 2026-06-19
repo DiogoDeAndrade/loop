@@ -19,5 +19,5 @@ public class CharacterArchetype : ScriptableObject
     [ShowIf(nameof(isPlayer))]
     public float    dragCoeff = 200.0f;
     [ShowIf(nameof(isPlayer))]
-    public Inventory.Items[]    initialItems;
+    public Item[]   initialItems;
 }

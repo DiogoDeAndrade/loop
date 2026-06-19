@@ -2,6 +2,7 @@ using NaughtyAttributes;
 using UnityEngine;
 using UC;
 using System;
+using UC.RPG;
 
 public abstract class Ability : MonoBehaviour
 {
@@ -86,7 +87,11 @@ public abstract class Ability : MonoBehaviour
         }
         if (resourceType)
         {
-            resource?.Change(ResourceHandler.ChangeType.Burst, -resourcePerShot, character.transform.position, Vector3.zero, character.gameObject);
+            resource?.Change(new ChangeData(-resourcePerShot, ChangeType.Burst)
+            {
+                changeSrcPosition = character.transform.position,
+                source = character.gameObject
+            });
         }
     }
     public virtual void Destroy()

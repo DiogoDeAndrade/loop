@@ -2,6 +2,7 @@ using NaughtyAttributes;
 using System.Collections;
 using System.Collections.Generic;
 using UC;
+using UC.RPG;
 using UnityEngine;
 
 public class Character : MonoBehaviour
@@ -89,7 +90,7 @@ public class Character : MonoBehaviour
         }
     }
 
-    private void OnDeath(GameObject changeSource)
+    private void OnDeath(ResourceInstance resourceInstance, GameObject changeSource)
     {
         var colliders = GetComponents<Collider2D>();
         foreach (var collider in colliders) collider.enabled = false;
@@ -124,16 +125,16 @@ public class Character : MonoBehaviour
         Destroy(gameObject);
     }
 
-    private void OnDamage(ResourceHandler.ChangeType changeType, float deltaValue, Vector3 changeSrcPosition, Vector3 changeSrcDirection, GameObject changeSource)
+    private void OnDamage(ResourceInstance resourceInstance, ChangeData changeData)
     {
-        if (deltaValue < 0)
+        if (changeData.deltaValue < 0)
         {
             foreach (var spriteEffect in spriteEffects)
             {
                 spriteEffect.FlashInvert(0.15f);
             }
 
-            CombatTextManager.SpawnText(gameObject, string.Format("{0}", (int)deltaValue), combatTextColorError, combatTextColorError.ChangeAlpha(0.0f));
+            CombatTextManager.SpawnText(gameObject, string.Format("{0}", (int)changeData.deltaValue), new CombatTextDef(combatTextColorError, combatTextColorError.ChangeAlpha(0.0f), 0.0f));
         }
     }
 

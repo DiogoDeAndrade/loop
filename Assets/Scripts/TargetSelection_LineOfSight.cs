@@ -1,4 +1,4 @@
-using UC;
+using UC.RPG;
 using UnityEngine;
 
 public class TargetSelection_LineOfSight : TargetSelection
@@ -18,13 +18,13 @@ public class TargetSelection_LineOfSight : TargetSelection
         if (health) health.onChange -= SetTargetIfHit;
     }
 
-    private void SetTargetIfHit(ResourceHandler.ChangeType changeType, float deltaValue, Vector3 changeSrcPosition, Vector3 changeSrcDirection, GameObject changeSource)
+    private void SetTargetIfHit(ResourceInstance resourceInstance, ChangeData changeData)
     {
         if (_currentTarget) return;
 
-        if (deltaValue < 0)
+        if (changeData.deltaValue < 0)
         {
-            _currentTarget = changeSource.GetComponent<Character>();
+            _currentTarget = changeData.source.GetComponent<Character>();
         }
     }
 
