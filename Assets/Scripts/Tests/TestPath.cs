@@ -4,6 +4,9 @@ using UC;
 
 public class TestPath : MonoBehaviour
 {
+    [SerializeField] private bool startWandering = false;
+    [SerializeField] private bool startMove = false;
+    [SerializeField] private float wanderRadius = 400.0f;
     [SerializeField] private Transform startPos;
     [SerializeField] private Transform endPos;
 
@@ -18,8 +21,20 @@ public class TestPath : MonoBehaviour
         agent.onComplete += Agent_onComplete;
         agent.onStopped = Agent_OnStopped;
 
-        transform.position = startPos.position;
         spawnPos = transform.position;
+
+        if (startWandering)
+        {
+            StartWander();
+        }
+        else
+        {
+            if (startMove)
+            {
+                transform.position = startPos.position;
+                MoveToEnd();
+            }
+        }
     }
 
     private bool Agent_OnStopped(NavMeshAgent2d agent)
@@ -77,6 +92,6 @@ public class TestPath : MonoBehaviour
 
     Vector3 GetRandomPoint()
     {
-        return spawnPos + Random.insideUnitCircle.xy0() * 400.0f;
+        return spawnPos + Random.insideUnitCircle.xy0() * wanderRadius;
     }
 }
