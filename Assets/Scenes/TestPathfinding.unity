@@ -316,6 +316,7 @@ BoxCollider2D:
   m_EdgeRadius: 0
 --- !u!212 &73632554
 SpriteRenderer:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -334,6 +335,8 @@ SpriteRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -355,9 +358,11 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_Sprite: {fileID: 3387100270311594892, guid: f59a8179b5f18ea449ac83bbf9a9438a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -367,7 +372,6 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &194038226
 GameObject:
@@ -405,6 +409,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!483693784 &194038228
 TilemapRenderer:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -423,6 +428,8 @@ TilemapRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -444,9 +451,11 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -2111207959
   m_SortingLayer: -1
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 15.5, y: 15.5, z: 0}
   m_MaxChunkCount: 16
@@ -454,7 +463,6 @@ TilemapRenderer:
   m_SortOrder: 0
   m_Mode: 0
   m_DetectChunkCullingBounds: 0
-  m_MaskInteraction: 0
 --- !u!1839735485 &194038229
 Tilemap:
   m_ObjectHideFlags: 0
@@ -14395,6 +14403,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!483693784 &290017827
 TilemapRenderer:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -14413,6 +14422,8 @@ TilemapRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -14434,9 +14445,11 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 15.5, y: 15.5, z: 0}
   m_MaxChunkCount: 16
@@ -14444,7 +14457,6 @@ TilemapRenderer:
   m_SortOrder: 0
   m_Mode: 1
   m_DetectChunkCullingBounds: 0
-  m_MaskInteraction: 0
 --- !u!1839735485 &290017828
 Tilemap:
   m_ObjectHideFlags: 0
@@ -18191,6 +18203,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!483693784 &452776201
 TilemapRenderer:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -18209,6 +18222,8 @@ TilemapRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -18230,9 +18245,11 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 15.5, y: 15.5, z: 0}
   m_MaxChunkCount: 16
@@ -18240,7 +18257,6 @@ TilemapRenderer:
   m_SortOrder: 0
   m_Mode: 1
   m_DetectChunkCullingBounds: 0
-  m_MaskInteraction: 0
 --- !u!1839735485 &452776202
 Tilemap:
   m_ObjectHideFlags: 0
@@ -18614,7 +18630,6 @@ MonoBehaviour:
   m_ScreenCoordScaleBias: {x: 0, y: 0, z: 0, w: 0}
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
-  m_Version: 2
   m_TaaSettings:
     m_Quality: 3
     m_FrameInfluence: 0.1
@@ -18622,6 +18637,7 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+  m_Version: 2
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -18776,7 +18792,7 @@ Transform:
   m_GameObject: {fileID: 601620330}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -732, y: -58, z: -3.026588}
+  m_LocalPosition: {x: 236, y: 144, z: -3.026588}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -18979,6 +18995,7 @@ MonoBehaviour:
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -19253,6 +19270,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!483693784 &872396311
 TilemapRenderer:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -19271,6 +19289,8 @@ TilemapRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -19292,9 +19312,11 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
+  m_MaskInteraction: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 15.5, y: 15.5, z: 0}
   m_MaxChunkCount: 16
@@ -19302,7 +19324,6 @@ TilemapRenderer:
   m_SortOrder: 0
   m_Mode: 1
   m_DetectChunkCullingBounds: 0
-  m_MaskInteraction: 0
 --- !u!1839735485 &872396312
 Tilemap:
   m_ObjectHideFlags: 0
@@ -19582,7 +19603,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textPrefab: {fileID: 2276324114345614055, guid: a792cfee5aca8094dbcb388928606ec5, type: 3}
-  defaultTime: 1
+  _defaultTime: 1
   movementVector: {x: 0, y: 20}
   fadeRate: 0.25
   uiCamera: {fileID: 519420031}
@@ -19698,6 +19719,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1068888162}
   - component: {fileID: 1068888161}
+  - component: {fileID: 1068888164}
+  - component: {fileID: 1068888163}
   m_Layer: 0
   m_Name: Door
   m_TagString: Untagged
@@ -19766,6 +19789,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1068888163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1068888160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34ca6d96fbf3f5e40914c0c3aa99a0ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ManualDoor
+  isOpen: 1
+--- !u!114 &1068888164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1068888160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c920c8e4637cc34f9d01f49fd9768c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UC.NavMeshLink2d
+  agentType: {fileID: 11400000, guid: 7ac7a72c90a215540a12a895b5c4524e, type: 2}
+  localStart: {x: 5.5, y: 40.5, z: 0}
+  localEnd: {x: 5.5, y: -48.999996, z: 0}
+  autoTraverse: 1
+  bidirectional: 1
+  costMultiplier: 1
 --- !u!1 &1089711620
 GameObject:
   m_ObjectHideFlags: 0
@@ -19786,6 +19840,7 @@ GameObject:
   m_IsActive: 1
 --- !u!212 &1089711621
 SpriteRenderer:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -19804,6 +19859,8 @@ SpriteRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -19825,9 +19882,11 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -1556041109
   m_SortingLayer: 1
   m_SortingOrder: 1
+  m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: b7d9e47ceecd32748a558895594996c8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -19837,7 +19896,6 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1089711622
 Transform:
@@ -19965,6 +20023,7 @@ BoxCollider2D:
   m_EdgeRadius: 0
 --- !u!212 &1164099413
 SpriteRenderer:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -19983,6 +20042,8 @@ SpriteRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -20004,9 +20065,11 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_Sprite: {fileID: -1407223434, guid: 01276f798f6015747997e183548e89d4, type: 3}
   m_Color: {r: 0.21150766, g: 0.9150943, b: 0.23864965, a: 1}
   m_FlipX: 0
@@ -20016,7 +20079,6 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1001 &1220158063
 PrefabInstance:
@@ -20312,6 +20374,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!483693784 &1328769017
 TilemapRenderer:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -20330,6 +20393,8 @@ TilemapRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -20351,9 +20416,11 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
+  m_MaskInteraction: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 15.5, y: 15.5, z: 0}
   m_MaxChunkCount: 16
@@ -20361,7 +20428,6 @@ TilemapRenderer:
   m_SortOrder: 0
   m_Mode: 1
   m_DetectChunkCullingBounds: 0
-  m_MaskInteraction: 0
 --- !u!1839735485 &1328769018
 Tilemap:
   m_ObjectHideFlags: 0
@@ -21778,6 +21844,7 @@ Rigidbody2D:
   m_Constraints: 0
 --- !u!212 &1419852218
 SpriteRenderer:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -21796,6 +21863,8 @@ SpriteRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -21817,9 +21886,11 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_Sprite: {fileID: -4983165049299271294, guid: ff4910ebe4f95ef498a87c989779fd7d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -21829,7 +21900,6 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1419852219
 Transform:
@@ -21894,6 +21964,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1481043036
 SpriteRenderer:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -21912,6 +21983,8 @@ SpriteRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -21933,9 +22006,11 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: b48df14bc84155541a7aac89e1a4a552, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0.65882355}
   m_FlipX: 0
@@ -21945,7 +22020,6 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1564819116
 GameObject:
@@ -22042,6 +22116,7 @@ BoxCollider2D:
   m_EdgeRadius: 0
 --- !u!212 &1564819120
 SpriteRenderer:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -22060,6 +22135,8 @@ SpriteRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -22081,9 +22158,11 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_Sprite: {fileID: -7893258073902642469, guid: f59a8179b5f18ea449ac83bbf9a9438a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -22093,7 +22172,6 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1606942979
 GameObject:
@@ -22130,6 +22208,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!483693784 &1606942981
 TilemapRenderer:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -22148,6 +22227,8 @@ TilemapRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -22169,9 +22250,11 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -2111207959
   m_SortingLayer: -1
   m_SortingOrder: 1
+  m_MaskInteraction: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 15.5, y: 15.5, z: 0}
   m_MaxChunkCount: 16
@@ -22179,7 +22262,6 @@ TilemapRenderer:
   m_SortOrder: 0
   m_Mode: 0
   m_DetectChunkCullingBounds: 0
-  m_MaskInteraction: 0
 --- !u!1839735485 &1606942982
 Tilemap:
   m_ObjectHideFlags: 0
@@ -22726,6 +22808,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1691066258
 SpriteRenderer:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -22744,6 +22827,8 @@ SpriteRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -22765,9 +22850,11 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_Sprite: {fileID: 1254323707580084795, guid: f59a8179b5f18ea449ac83bbf9a9438a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -22777,7 +22864,6 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1717573995
 GameObject:
@@ -22874,6 +22960,7 @@ BoxCollider2D:
   m_EdgeRadius: 0
 --- !u!212 &1717573999
 SpriteRenderer:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -22892,6 +22979,8 @@ SpriteRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -22913,9 +23002,11 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_Sprite: {fileID: -3942674199845505046, guid: f59a8179b5f18ea449ac83bbf9a9438a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -22925,7 +23016,6 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1724312027
 GameObject:
@@ -22937,6 +23027,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1724312029}
   - component: {fileID: 1724312028}
+  - component: {fileID: 1724312030}
   m_Layer: 0
   m_Name: NavMesh
   m_TagString: Untagged
@@ -22968,25 +23059,6 @@ MonoBehaviour:
   funnelBias: 0.214
   defaultTerrainType: {fileID: 11400000, guid: ae64c47123aebf047aad4f1869f2075e, type: 2}
   boundaryAreaTolerance: 1
-  debugEnabled: 1
-  debugGrid: 0
-  colorByRegion: 0
-  colorByCost: 0
-  costLabel: 0
-  costLabelScale: 1
-  debugContours: 1
-  debugPolygons: 1
-  colorPolygonsByCost: 1
-  polygonCostLabel: 1
-  polygonCostLabelScale: 1.03
-  debugTestNearPoint: 0
-  debugTestPath: 1
-  debugTestLoS: 0
-  testPoint: {fileID: 1876260400}
-  startPoint: {fileID: 1876260400}
-  endPoint: {fileID: 601620331}
-  testRegionId: 2
-  testAgent: {fileID: 11400000, guid: 3fe953a3746b67341a9cc56e139474c9, type: 2}
   cellSize: 4
   gridSize: {x: 317, y: 208}
   gridOffset: {x: -765.77, y: -477.86002}
@@ -88968,8 +89040,8 @@ MonoBehaviour:
       _center: {x: -675.77, y: -371.86002, z: 0}
       neighbors: ffffffffffffffffffffffffffffffff
     bounds:
-      center: {x: 0, y: 0}
-      size: {x: 0, y: 0}
+      center: {x: -675.77, y: -371.86002}
+      size: {x: 184, y: 216}
   - regionId: 1
     defaultTerrainType: {fileID: 11400000, guid: ae64c47123aebf047aad4f1869f2075e, type: 2}
     boundaryAreaAbs: 125152
@@ -89033,8 +89105,8 @@ MonoBehaviour:
       - {x: 452.22998, y: -355.86002, z: 0}
       terrainType: {fileID: 11400000, guid: ae64c47123aebf047aad4f1869f2075e, type: 2}
       _bounds:
-        center: {x: 390.22998, y: -33.860016}
-        size: {x: 220, y: 60}
+        center: {x: 364.22998, y: -241.86002}
+        size: {x: 272, y: 476}
       _center: {x: 353.56332, y: -25.19335, z: 0}
       neighbors: ffffffffffffffff04000000
     - id: 1
@@ -89118,8 +89190,8 @@ MonoBehaviour:
       _center: {x: 363.43, y: -77.460014, z: 0}
       neighbors: ffffffff02000000ffffffff0300000000000000
     bounds:
-      center: {x: 0, y: 0}
-      size: {x: 0, y: 0}
+      center: {x: 364.22998, y: -241.86002}
+      size: {x: 272, y: 476}
   - regionId: 2
     defaultTerrainType: {fileID: 11400000, guid: ae64c47123aebf047aad4f1869f2075e, type: 2}
     boundaryAreaAbs: 483073.84
@@ -91411,8 +91483,8 @@ MonoBehaviour:
       - {x: 88.22998, y: 280.13998, z: 0}
       terrainType: {fileID: 11400000, guid: ae64c47123aebf047aad4f1869f2075e, type: 2}
       _bounds:
-        center: {x: 168.22998, y: 142.13998}
-        size: {x: 160, y: 276}
+        center: {x: 280.22998, y: 142.13998}
+        size: {x: 384, y: 276}
       _center: {x: 168.22998, y: 89.139984, z: 0}
       neighbors: ffffffff01000000ffffffffffffffff
     - id: 1
@@ -91431,8 +91503,8 @@ MonoBehaviour:
       _center: {x: 320.22998, y: 174.13998, z: 0}
       neighbors: ffffffffffffffffffffffff00000000
     bounds:
-      center: {x: 0, y: 0}
-      size: {x: 0, y: 0}
+      center: {x: 280.22998, y: 142.13998}
+      size: {x: 384, y: 276}
 --- !u!4 &1724312029
 Transform:
   m_ObjectHideFlags: 0
@@ -91448,6 +91520,40 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1724312030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1724312027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77e22e776665d1a46849a97dd0500d28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UC.NavMeshDebug2d
+  debugEnabled: 1
+  debugWhenNotSelected: 1
+  debugGrid: 0
+  colorByRegion: 0
+  colorByCost: 0
+  costLabel: 0
+  costLabelScale: 1
+  debugContours: 1
+  debugLinks: 1
+  debugPolygons: 1
+  colorPolygonsByCost: 0
+  polygonCostLabel: 0
+  polygonCostLabelScale: 1
+  debugTestNearPoint: 0
+  debugTestPath: 1
+  debugTestRegion: 0
+  debugTestLoS: 0
+  testPoint: {fileID: 0}
+  startPoint: {fileID: 1876260400}
+  endPoint: {fileID: 601620331}
+  testRegionId: 2
+  testAgent: {fileID: 11400000, guid: 7ac7a72c90a215540a12a895b5c4524e, type: 2}
 --- !u!1 &1771497802
 GameObject:
   m_ObjectHideFlags: 0
@@ -91654,7 +91760,7 @@ Transform:
   m_GameObject: {fileID: 1876260399}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -492, y: -34, z: -3.026588}
+  m_LocalPosition: {x: -18, y: -200.5, z: -3.026588}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -92181,6 +92287,7 @@ BoxCollider2D:
   m_EdgeRadius: 0
 --- !u!212 &2113751843
 SpriteRenderer:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -92199,6 +92306,8 @@ SpriteRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -92220,9 +92329,11 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_Sprite: {fileID: 1319010665579788155, guid: f59a8179b5f18ea449ac83bbf9a9438a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -92232,7 +92343,6 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1001 &7104849803499403685
 PrefabInstance:
@@ -92362,15 +92472,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6749205070720875387, guid: 4ba9cc54dd16a0f47a2269460a1202b6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 17.199997
+      value: -75.5
       objectReference: {fileID: 0}
     - target: {fileID: 6749205070720875387, guid: 4ba9cc54dd16a0f47a2269460a1202b6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 24.9
+      value: -188.5
       objectReference: {fileID: 0}
     - target: {fileID: 6749205070720875387, guid: 4ba9cc54dd16a0f47a2269460a1202b6, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -3.026588
       objectReference: {fileID: 0}
     - target: {fileID: 6749205070720875387, guid: 4ba9cc54dd16a0f47a2269460a1202b6, type: 3}
       propertyPath: m_LocalRotation.w
